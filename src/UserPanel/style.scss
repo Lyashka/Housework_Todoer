@@ -1,0 +1,161 @@
+@import '../style.scss';
+
+.user-panel {
+  @include flex-column();
+  justify-content: flex-start;
+  width: 25vw;
+}
+
+.user {
+  @include flex-row();
+  justify-content: space-between;
+  width: 220px;
+  height: 110px;
+  padding: 10px;
+  background-color: #FFE8DB;
+  border-radius: 8px;
+  margin-bottom: 60px;
+}
+
+.user__avatar {
+  @include flex-column();
+  justify-content: center;
+}
+
+.user__img {
+  width: 70px;
+  height: 70px;
+  background-image: url(../icons/Jack.svg);
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.user__information {
+  @include flex-column();
+  min-width: 120px;
+}
+
+.user__header {
+  @include flex-row();
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.leave-user-button {
+  @include flex-row();
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 20px;
+  font-size: 0.7em;
+  color: #555555;
+  background-image: url(../icons/exit_to_app.svg);
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
+
+  &:hover {
+    color: #000000;
+    background-image: url(../icons/exit_to_app_hover.svg);
+  }
+
+  &:active {
+    color: #FF8933;
+    background-image: url(../icons/exit_to_app_active.svg);
+  }
+}
+
+.user__body {
+  @include flex-row();
+  justify-content: space-around;
+}
+
+.user__footer {
+  @include flex-column();
+}
+
+.user__text {
+  @include flex-column();
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.user__greeting {
+  color: #555555;
+  margin-bottom: 10px;
+}
+
+.change-password-button {
+  color: #FF8933;
+  font-size: 0.8em;
+
+  &:hover {
+    color: #F95D66;
+  }
+
+  &:active {
+    background-color: #F95D66;
+    color: #FFFFFF;
+    border-radius: 2px;
+  }
+}
+
+.child-user {
+  @include flex-row();
+  align-items: center;
+  justify-content: space-around;
+  width: 220px;
+  height: 110px;
+  padding: 5px;
+  background-color: #FFD9DB;
+  border-radius: 8px;
+}
+
+.user_lily {
+  margin-bottom: 15px;
+}
+
+.child_user__avatar {
+  width: 70px;
+  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.avatar_lily {
+  background-image: url(../icons/Lily.svg);
+}
+
+.avatar_mary {
+  background-image: url(../icons/Mary.svg);
+}
+
+.child-user__text {
+  @include flex-row();
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.childs-information__coins {
+  background-color: #F95D66;
+  color: #FFFFFF;
+  padding: 5px;
+}
+
+.change-HC-button {
+  color: #F95D66;
+  font-size: 0.8em;
+
+  &:hover {
+    color: #FF8933;
+  }
+
+  &:active {
+    background-color: #FF8933;
+    color: #FFFFFF;
+    border-radius: 2px;
+  }
+}
