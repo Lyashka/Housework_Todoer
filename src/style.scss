@@ -3,7 +3,7 @@
   padding: 0;
   margin: 0;
   font: 1em 'Roboto', sans-serif;
-  transition: .5s ease-in-out;
+  transition: .2s ease-in-out;
 }
 
 ul {
@@ -11,7 +11,26 @@ ul {
 }
 
 a {
+  margin: 0;
+  padding: 0;
+  outline: none;
   text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+input, textarea {
+  margin: 0;
+  padding: 0;
+  border: none;
   outline: none;
 }
 
@@ -36,17 +55,12 @@ body {
   background: #f7f7f7;
 }
 
-.App {
-  text-align: center;
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
-.App-header {
-  background-color: #f7f7f7;
-  height: 100vh;
+@mixin flex-column {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #282c34;
 }
