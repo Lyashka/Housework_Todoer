@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import determineСardСolorByTaskReward from '../Core/determineСardСolorByTaskReward';
 import './style.scss';
 
 export default class NewTask extends Component {
@@ -42,8 +43,23 @@ export default class NewTask extends Component {
     })
   }
 
-  handleAcceptCreateTask() {
+  handleAcceptCreateTask(e) {
+    e.preventDefault();
 
+    const color = determineСardСolorByTaskReward(this.state.reward);
+    const newTask = {
+      reward: Number(this.state.reward),
+      description: this.state.description,
+      color: color,
+    };
+
+    this.props.createNewTask(newTask);
+
+    this.setState({
+      isActive: false,
+      description: '',
+      reward: '',
+    });
   }
 
   render() {
@@ -53,34 +69,45 @@ export default class NewTask extends Component {
           <p className="create-task-card__title">New housework task</p>
         </div>
 
-        <form className="create-task-form">
+        <form className="create-task-form" onSubmit={(e) => this.handleAcceptCreateTask(e)}>
           <div className="create-task-card__body">
             <div className="create-task-form__title">
               <label className="description-title">Title</label>
-              <textarea className="description-textarea" autofocus required></textarea>
+              <textarea
+                className="description-textarea"
+                autoFocus
+                required
+                onChange={this.handleInputChange}>
+              </textarea>
             </div>
             <div className="create-task-form__reward">
               <label className="reward-title">Reward</label>
-              <input className="reward-input" type="number" min="0" max="999" required></input>
+              <input
+                className="reward-input"
+                type="number"
+                min="50" max="250"
+                required
+                onChange={this.handleInputChange}>
+              </input>
             </div>
           </div>
 
-            <div className="create-task-card__footer">
-              <button className="cancel-button" type="button" onClick={this.handleRejectCreateTask}>
-                Cancel
+          <div className="create-task-card__footer">
+            <button className="cancel-button" type="button" onClick={this.handleRejectCreateTask}>
+              Cancel
               </button>
-              <button className="create-task-button" type="submit">
-                Create
+            <button className="create-task-button" type="submit">
+              Create
               </button>
-            </div>
+          </div>
         </form>
       </article>
     ) : (
-      <button type="button" className="add-task-button" onClick={this.handleAddTask}>
-        <div className="new-task-card">
-          <p className="add-task">+</p>
-        </div>
-      </button>
-    )
+        <button type="button" className="add-task-button" onClick={this.handleAddTask}>
+          <div className="new-task-card">
+            <p className="add-task">+</p>
+          </div>
+        </button>
+      )
   }
 }
