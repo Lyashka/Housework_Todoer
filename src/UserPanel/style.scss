@@ -1,9 +1,8 @@
 @import '../style.scss';
 
-.user-panel {
+.container-user {
   @include flex-column();
-  justify-content: flex-start;
-  width: 25vw;
+  margin-bottom: 50px;
 }
 
 .user {
@@ -14,7 +13,6 @@
   padding: 10px;
   background-color: #FFE8DB;
   border-radius: 8px;
-  margin-bottom: 60px;
 }
 
 .user__avatar {
@@ -98,6 +96,66 @@
     background-color: #F95D66;
     color: #FFFFFF;
     border-radius: 2px;
+  }
+}
+
+.user__footer {
+  width: 220px;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.user__form {}
+
+.label-for-user-password {
+  font-size: 0.85em;
+}
+
+.user-password {
+  border: 1px solid #555555;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.buttons-change-password {
+  @include flex-row();
+  justify-content: flex-end;
+  font-size: 0.9em;
+}
+
+.reject-change-password-button {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #F95D66;
+  color:#F95D66;
+
+  &:hover {
+    box-shadow: 0px 10px 12px -6px #F95D66;
+  }
+
+  &:active {
+    background-color: #F95D66;
+    color: #FFFFFF;
+  }
+}
+
+.accept-change-password-button {
+  padding: 5px;
+  color: #FFFFFF;
+  background-color: #FF8933;
+
+  &:hover {
+    box-shadow: 0px 10px 12px -6px #FF8933;
+  }
+
+  &:active {
+    background-color: #FFFFFF;
+    color: #FF8933;
+    border: 1px solid #FF8933;
   }
 }
 

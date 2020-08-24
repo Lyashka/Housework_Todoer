@@ -22,7 +22,7 @@ export default class HomeParent extends Component {
             <UserPanel role="parent" name="Jack" className=""/>
           </article>
 
-          <div className="main-section">
+          <article className="main-section">
             <nav>
               <ul className="navigation">
                 <li className="navigation__item">
@@ -50,7 +50,7 @@ export default class HomeParent extends Component {
                 </li>
               </ul>
             </div>
-          </div>
+          </article>
 
         </main>
         <footer className="footer">
