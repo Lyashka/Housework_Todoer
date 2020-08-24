@@ -12,6 +12,15 @@ export default class HomeParent extends Component {
     this.state = {
       tasks: [...tasks]
     };
+
+    this.updateTasks = this.updateTasks.bind(this);
+  }
+
+  updateTasks(newTask) {
+    this.setState({
+      tasks: [...this.state.tasks, newTask],
+    })
+    console.log(this.state.tasks)
   }
 
   render() {
@@ -46,7 +55,7 @@ export default class HomeParent extends Component {
                   </li>
                 ))}
                 <li className="task-item">
-                  <NewTaskCard />
+                  <NewTaskCard createNewTask={this.updateTasks}/>
                 </li>
               </ul>
             </div>
