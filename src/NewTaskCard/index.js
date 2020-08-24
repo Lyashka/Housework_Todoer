@@ -7,10 +7,27 @@ export default class NewTask extends Component {
 
     this.state = {
       isActive: false,
+      description: '',
+      reward: '',
     }
 
     this.handleAddTask = this.handleAddTask.bind(this);
     this.handleRejectCreateTask = this.handleRejectCreateTask.bind(this);
+    this.handleAcceptCreateTask = this.handleAcceptCreateTask.bind(this);
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(e) {
+    if (e.target.type === 'textarea') {
+      this.setState({
+        description: e.target.value,
+      })
+    } else {
+      this.setState({
+        reward: e.target.value,
+      })
+    }
   }
 
   handleAddTask() {
