@@ -13,7 +13,7 @@ export default class HomePageForParent extends Component {
       tasks: [...tasks]
     };
 
-    this.updateTasks = this.updateTasks.bind(this);
+    this.createNewTask = this.createNewTask.bind(this);
   }
 
   createNewTask(newTask) {

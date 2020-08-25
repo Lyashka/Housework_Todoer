@@ -53,7 +53,7 @@ export default class NewTaskCard extends Component {
       color: color,
     };
 
-    this.props.createNewTask(newTask);
+    this.props.addTaskToState(newTask);
 
     this.setState({
       isActive: false,
