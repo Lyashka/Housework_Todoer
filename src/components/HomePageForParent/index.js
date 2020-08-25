@@ -16,7 +16,7 @@ export default class HomePageForParent extends Component {
     this.updateTasks = this.updateTasks.bind(this);
   }
 
-  updateTasks(newTask) {
+  createNewTask(newTask) {
     this.setState({
       tasks: [...this.state.tasks, newTask],
     })
@@ -55,7 +55,7 @@ export default class HomePageForParent extends Component {
                   </li>
                 ))}
                 <li className="task-item">
-                  <NewTaskCard createNewTask={this.updateTasks}/>
+                  <NewTaskCard addTaskToState={this.createNewTask}/>
                 </li>
               </ul>
             </div>
