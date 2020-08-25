@@ -20,7 +20,6 @@ export default class HomePageForParent extends Component {
     this.setState({
       tasks: [...this.state.tasks, newTask],
     })
-    console.log(this.state.tasks)
   }
 
   render() {
