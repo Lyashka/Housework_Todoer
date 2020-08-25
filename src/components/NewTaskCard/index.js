@@ -20,15 +20,9 @@ export default class NewTaskCard extends Component {
   }
 
   handleInputChange(e) {
-    if (e.target.type === 'textarea') {
-      this.setState({
-        description: e.target.value,
-      })
-    } else {
-      this.setState({
-        reward: e.target.value,
-      })
-    }
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   }
 
   handleAddTask() {
@@ -75,6 +69,7 @@ export default class NewTaskCard extends Component {
               <label className="description-title">Title</label>
               <textarea
                 className="description-textarea"
+                name="description"
                 autoFocus
                 required
                 onChange={this.handleInputChange}>
@@ -84,6 +79,7 @@ export default class NewTaskCard extends Component {
               <label className="reward-title">Reward</label>
               <input
                 className="reward-input"
+                name="reward"
                 type="number"
                 min="50" max="250"
                 required
