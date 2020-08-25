@@ -2,16 +2,24 @@ import React, { Component } from "react";
 import UserPanel from '../UserPanel';
 import TaskCard from '../TaskCard';
 import NewTaskCard from '../NewTaskCard';
-import { tasks } from '../const';
-import './style.scss';
+import { tasks } from '../../const';
+import './homePageForParent.scss';
 
-export default class HomeParent extends Component {
+export default class HomePageForParent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       tasks: [...tasks]
     };
+
+    this.createNewTask = this.createNewTask.bind(this);
+  }
+
+  createNewTask(newTask) {
+    this.setState({
+      tasks: [...this.state.tasks, newTask],
+    })
   }
 
   render() {
@@ -46,7 +54,7 @@ export default class HomeParent extends Component {
                   </li>
                 ))}
                 <li className="task-item">
-                  <NewTaskCard />
+                  <NewTaskCard addTaskToState={this.createNewTask}/>
                 </li>
               </ul>
             </div>

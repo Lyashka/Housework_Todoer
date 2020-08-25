@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './style.scss';
+import './taskCard.scss';
 
 export default class TaskCard extends Component {
   constructor(props) {
