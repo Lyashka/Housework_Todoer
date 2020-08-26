@@ -1,0 +1,129 @@
+@import '../../basic.scss';
+
+.edit-task-card {
+  @include flex-column();
+  box-sizing: border-box;
+  width: 180px;
+  border-radius: 8px;
+  box-shadow: -2px 4px 10px #00000045;
+  margin: 0px 10px;
+  z-index: 99999;
+}
+
+.edit-task-card__header {
+  @include flex-row();
+  padding: 15px;
+  justify-content: flex-start;
+  background-color: #FFE8DB;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.edit-task-card__title {
+  font-size: 0.85em;
+  color: #FF8933;
+  font-weight: 700;
+}
+
+.edit-task-form {}
+
+.edit-task-card__body {
+  @include flex-column();
+  height: 135px;
+  padding: 0px 15px;
+  background-color: #FFE8DB;
+}
+
+.edit-task-form__title, .edit-task-form__reward {
+  @include flex-column();
+  margin-bottom: 10px;
+}
+
+.description-title, .reward-title {
+  color: #454545;
+  font-size: 0.8em;
+  margin-bottom: 5px;
+}
+
+.description-textarea {
+  width: 140px;
+  height: 40px;
+  resize: none;
+  font-size: 0.8em;
+}
+
+.reward-input {
+  width: 60px;
+  height: 30px;
+}
+
+.edit-task-card__footer {
+  @include flex-column();
+  padding: 10px 15px 15px 15px;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.row-buttons-container {
+  @include flex-row();
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cancel-button {
+  padding: 5px;
+  margin-right: 10px;
+  font-size: 0.9em;
+  color: #F95D66;
+  border: 1px solid #F95D66;
+
+  &:hover {
+    box-shadow: 0px 10px 12px -6px #F95D66;
+  }
+
+  &:active {
+    background-color: #F95D66;
+    color: #FFFFFF;
+  }
+}
+
+.save-change-button {
+  width: 80px;
+  padding: 5px;
+  font-size: 0.9em;
+  color: #FFFFFF;
+  background-color: #FF8933;
+
+  &:hover {
+    box-shadow: 0px 10px 12px -6px #FF8933;
+  }
+
+  &:active {
+    background-color: #FFFFFF;
+    color: #FF8933;
+    border: 1px solid #FF8933;
+  }
+}
+
+.delete-task-button {
+  @include flex-row();
+  justify-content: center;
+  padding: 5px;
+  color: #FFFFFF;
+  background-color: #696969;
+  background-image: url(../../icons/delete_task.svg);
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position-x: 75%;
+  background-position-y: center;
+
+  &:hover {
+    background-image: url(../../icons/delete_task_hover.svg);
+  }
+
+  &:active {
+    color: #F95D66;
+  }
+}
