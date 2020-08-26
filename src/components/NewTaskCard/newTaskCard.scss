@@ -47,13 +47,6 @@
   box-shadow: -2px 4px 10px #00000045;
 }
 
-.create-task-card {
-  @include flex-column();
-  width: 180px;
-  border-radius: 8px;
-  box-shadow: -2px 4px 10px #00000045;
-}
-
 .create-task-card__header {
   @include flex-row();
   padding: 15px;
