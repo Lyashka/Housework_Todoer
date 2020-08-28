@@ -1,3 +1,5 @@
+Specification: https://dev.to/vitalykrenel/do-you-need-a-portfolio-to-get-a-job-as-a-junior-developer-gci
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
