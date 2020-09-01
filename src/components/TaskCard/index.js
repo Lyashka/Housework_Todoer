@@ -44,7 +44,7 @@ export default class TaskCard extends Component {
                 className="description-textarea"
                 name="description"
                 required
-                value={this.description}>
+                defaultValue={this.description}>
               </textarea>
             </div>
             <div className="edit-task-form__reward">
@@ -55,7 +55,7 @@ export default class TaskCard extends Component {
                 type="number"
                 min="50" max="250"
                 required
-                value={this.reward}>
+                defaultValue={this.reward}>
               </input>
             </div>
           </div>
