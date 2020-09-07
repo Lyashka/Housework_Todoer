@@ -5,6 +5,7 @@ export default class TaskCard extends Component {
   constructor(props) {
     super(props);
 
+    this.taskId = this.props.taskId;
     this.reward = this.props.reward;
     this.description = this.props.description;
     this.color = this.props.color;
@@ -15,6 +16,7 @@ export default class TaskCard extends Component {
 
     this.handleEditTask = this.handleEditTask.bind(this);
     this.handleRejectEditTask = this.handleRejectEditTask.bind(this);
+    this.handleRemoveTask = this.handleRemoveTask.bind(this);
   }
 
   handleEditTask() {
@@ -27,6 +29,10 @@ export default class TaskCard extends Component {
     this.setState({
       isEdit: false,
     })
+  }
+
+  handleRemoveTask() {
+    this.props.deleteTask(this.taskId);
   }
 
   render() {
@@ -62,14 +68,14 @@ export default class TaskCard extends Component {
 
           <div className="edit-task-card__footer">
             <div className="row-buttons-container">
-              <button className="cancel-button" type="button" onClick={this.handleRejectEditTask }>
+              <button className="cancel-button" type="button" onClick={this.handleRejectEditTask}>
                 Cancel
               </button>
               <button className="save-change-button" type="submit">
                 Save
               </button>
             </div>
-            <button className="delete-task-button" type="button">
+            <button className="delete-task-button" type="button" onClick={this.handleRemoveTask}>
               Delete
             </button>
           </div>
