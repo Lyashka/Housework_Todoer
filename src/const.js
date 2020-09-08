@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const colorForEasistTask = "#FFB966";
+const colorForEasiestTask = "#FFB966";
 const colorForEasyTask = "#FE8368";
 const colorForNormalTask = "#FF5F5F";
 const colorForDifficultTask = "#FF467D";
@@ -34,6 +34,6 @@ export const tasks = [
     id: uuidv4(),
     reward: 50,
     description: "Fix the pillowcase",
-    color: colorForEasistTask
+    color: colorForEasiestTask
   }
 ];
