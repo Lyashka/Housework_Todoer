@@ -8,10 +8,29 @@ export default class TaskCard extends Component {
     this.reward = this.props.reward;
     this.description = this.props.description;
     this.color = this.props.color;
+
+    this.state = {
+      isEdit: false,
+    }
+
+    this.handleEditTask = this.handleEditTask.bind(this);
+    this.handleRejectEditTask = this.handleRejectEditTask.bind(this);
+  }
+
+  handleEditTask() {
+    this.setState({
+      isEdit: true,
+    })
+  }
+
+  handleRejectEditTask() {
+    this.setState({
+      isEdit: false,
+    })
   }
 
   render() {
-    return (
+    return this.state.isEdit ? (
       <article className="edit-task-card">
         <div className="edit-task-card__header">
           <p className="edit-task-card__title">Change task</p>
@@ -56,14 +75,17 @@ export default class TaskCard extends Component {
           </div>
         </form>
       </article>
-      /*<div className="task-card" style={{ backgroundColor: this.color }}>
-        <header className="task-card__header">
-          <p className="task-card__reward">{this.reward}</p>
-        </header>
-        <main className="task-card__body">
-          <p className="task-card__description">{this.description}</p>
-        </main>
-      </div>*/
+    ) : (
+      <button onClick={this.handleEditTask}>
+        <div className="task-card" style={{ backgroundColor: this.color }}>
+          <header className="task-card__header">
+            <p className="task-card__reward">{this.reward}</p>
+          </header>
+          <main className="task-card__body">
+            <p className="task-card__description">{this.description}</p>
+          </main>
+        </div>
+      </button>
     )
   }
 }
