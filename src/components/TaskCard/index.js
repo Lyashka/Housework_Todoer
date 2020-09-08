@@ -16,6 +16,7 @@ export default class TaskCard extends Component {
 
     this.handleEditTask = this.handleEditTask.bind(this);
     this.handleRejectEditTask = this.handleRejectEditTask.bind(this);
+    this.handleRemoveTask = this.handleRemoveTask.bind(this);
   }
 
   handleEditTask() {
@@ -28,6 +29,10 @@ export default class TaskCard extends Component {
     this.setState({
       isEdit: false,
     })
+  }
+
+  handleRemoveTask() {
+    this.props.deleteTask(this.taskId);
   }
 
   render() {
