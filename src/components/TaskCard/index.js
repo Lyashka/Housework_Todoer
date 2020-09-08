@@ -5,6 +5,7 @@ export default class TaskCard extends Component {
   constructor(props) {
     super(props);
 
+    this.taskId = this.props.taskId;
     this.reward = this.props.reward;
     this.description = this.props.description;
     this.color = this.props.color;

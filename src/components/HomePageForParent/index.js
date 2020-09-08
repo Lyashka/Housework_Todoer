@@ -44,14 +44,15 @@ export default class HomePageForParent extends Component {
 
             <div>
               <ul className="tasks">
-                {this.state.tasks.map((task, index) => (
-                  <li key={index} className="task-item">
-                    <TaskCard
-                      reward={task.reward}
-                      description={task.description}
-                      color={task.color}
-                    />
-                  </li>
+                {this.state.tasks.map((task) => (
+                  <li className="task-item" key={task.id}>
+                  <TaskCard
+                    taskId={task.id}
+                    reward={task.reward}
+                    description={task.description}
+                    color={task.color}
+                  />
+                </li>
                 ))}
                 <li className="task-item">
                   <NewTaskCard addTaskToState={this.createNewTask}/>
