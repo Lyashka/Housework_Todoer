@@ -40,12 +40,12 @@ export default class UserCard extends Component {
         <div className="container-user">
           <div className="user">
             <div className="user__avatar">
-              <img className="user__img" />
+              <img className="user__img" alt="User"/>
             </div>
 
             <div className="user__information">
               <div className="user__header">
-                <a className="leave-user-button">
+                <a className="leave-user-button" href="@">
                   Leave
               </a>
               </div>
@@ -81,7 +81,7 @@ export default class UserCard extends Component {
         </div>
 
         <div className="child-user user_lily">
-          <img className="child_user__avatar avatar_lily" />
+          <img className="child_user__avatar avatar_lily" alt="Lily"/>
           <div>
             <div className="child-user__text childs-information">
               <p className="childs-information__name">Lily</p>
@@ -91,7 +91,7 @@ export default class UserCard extends Component {
           </div>
         </div>
         <div className="child-user user_mary">
-          <img className="child_user__avatar avatar_mary" />
+          <img className="child_user__avatar avatar_mary" alt="Mary"/>
           <div>
             <div className="child-user__text childs-information">
               <p className="childs-information__name">Mary</p>
