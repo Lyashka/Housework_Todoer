@@ -7,13 +7,13 @@ export default class NewTaskCard extends Component {
     super(props);
 
     this.state = {
-      isActive: false,
+      isAddTask: false,
       description: '',
       reward: '',
     }
 
     this.handleAddTask = this.handleAddTask.bind(this);
-    this.handleRejectCreateTask = this.handleRejectCreateTask.bind(this);
+    this.handleRejectAddTask = this.handleRejectAddTask.bind(this);
     this.handleAcceptCreateTask = this.handleAcceptCreateTask.bind(this);
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,13 +27,13 @@ export default class NewTaskCard extends Component {
 
   handleAddTask() {
     this.setState({
-      isActive: true,
+      isAddTask: true,
     })
   }
 
-  handleRejectCreateTask() {
+  handleRejectAddTask() {
     this.setState({
-      isActive: false,
+      isAddTask: false,
     })
   }
 
@@ -50,14 +50,14 @@ export default class NewTaskCard extends Component {
     this.props.addTaskToState(newTask);
 
     this.setState({
-      isActive: false,
+      isAddTask: false,
       description: '',
       reward: '',
     });
   }
 
   render() {
-    return this.state.isActive ? (
+    return this.state.isAddTask ? (
       <article className="create-task-card">
         <div className="create-task-card__header">
           <p className="create-task-card__title">New housework task</p>
@@ -89,7 +89,7 @@ export default class NewTaskCard extends Component {
           </div>
 
           <div className="create-task-card__footer">
-            <button className="cancel-button" type="button" onClick={this.handleRejectCreateTask}>
+            <button className="cancel-button" type="button" onClick={this.handleRejectAddTask}>
               Cancel
               </button>
             <button className="create-task-button" type="submit">
