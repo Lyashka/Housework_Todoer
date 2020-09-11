@@ -10,11 +10,13 @@ export default class HomePageForParent extends Component {
     super(props);
 
     this.state = {
-      tasks: [...tasks]
+      tasks: [...tasks],
+      editTaskId: null,
     };
 
     this.createNewTask = this.createNewTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
+    this.changeEditCardId = this.changeEditCardId.bind(this);
   }
 
   createNewTask(newTask) {
@@ -27,6 +29,12 @@ export default class HomePageForParent extends Component {
     this.setState((prevState) => ({
       tasks: prevState.tasks.filter(task => task.id !== taskId),
     }));
+  }
+
+  changeEditCardId(taskId) {
+    this.setState({
+      editTaskId: taskId,
+    })
   }
 
   render() {
@@ -58,7 +66,9 @@ export default class HomePageForParent extends Component {
                     reward={task.reward}
                     description={task.description}
                     color={task.color}
+                    isEditTask={this.state.editTaskId === task.id}
                     deleteTask={this.deleteTask}
+                    changeEditCardId={this.changeEditCardId}
                   />
                 </li>
                 ))}

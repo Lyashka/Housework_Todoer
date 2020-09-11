@@ -10,25 +10,17 @@ export default class TaskCard extends Component {
     this.description = this.props.description;
     this.color = this.props.color;
 
-    this.state = {
-      isEdit: false,
-    }
-
     this.handleEditTask = this.handleEditTask.bind(this);
     this.handleRejectEditTask = this.handleRejectEditTask.bind(this);
     this.handleRemoveTask = this.handleRemoveTask.bind(this);
   }
 
   handleEditTask() {
-    this.setState({
-      isEdit: true,
-    })
+    this.props.changeEditCardId(this.taskId);
   }
 
   handleRejectEditTask() {
-    this.setState({
-      isEdit: false,
-    })
+    this.props.changeEditCardId(null);
   }
 
   handleRemoveTask() {
@@ -36,7 +28,7 @@ export default class TaskCard extends Component {
   }
 
   render() {
-    return this.state.isEdit ? (
+    return this.props.isEditTask ? (
       <article className="edit-task-card">
         <div className="edit-task-card__header">
           <p className="edit-task-card__title">Change task</p>
