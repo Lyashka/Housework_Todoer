@@ -17,6 +17,7 @@ export default class HomePageForParent extends Component {
     this.createNewTask = this.createNewTask.bind(this);
     this.deleteTask = this.deleteTask.bind(this);
     this.changeEditCardId = this.changeEditCardId.bind(this);
+    this.editTaskCard = this.editTaskCard.bind(this);
   }
 
   createNewTask(newTask) {
@@ -35,6 +36,18 @@ export default class HomePageForParent extends Component {
     this.setState({
       editTaskId: taskId,
     })
+  }
+
+  editTaskCard(editedCard) {
+    this.setState((prevState) => ({
+      tasks: prevState.tasks.map(task => {
+        if (task.id === editedCard.id) {
+          return editedCard;
+        } else {
+          return task;
+        }
+      }),
+    }));
   }
 
   render() {
@@ -69,6 +82,7 @@ export default class HomePageForParent extends Component {
                     isEditTask={this.state.editTaskId === task.id}
                     deleteTask={this.deleteTask}
                     changeEditCardId={this.changeEditCardId}
+                    editTaskCard={this.editTaskCard}
                   />
                 </li>
                 ))}
