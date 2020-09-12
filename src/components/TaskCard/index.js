@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import determineСardСolorByTaskReward from '../../Core/determineСardСolorByTaskReward';
 import './taskCard.scss';
 
 export default class TaskCard extends Component {
@@ -6,16 +7,27 @@ export default class TaskCard extends Component {
     super(props);
 
     this.taskId = this.props.taskId;
-    this.reward = this.props.reward;
-    this.description = this.props.description;
-    this.color = this.props.color;
 
-    this.handleEditTask = this.handleEditTask.bind(this);
+    this.state = {
+      description: this.props.description,
+      reward: this.props.reward,
+    }
+
+    this.handleOpenTaskCardForEdit = this.handleOpenTaskCardForEdit.bind(this);
     this.handleRejectEditTask = this.handleRejectEditTask.bind(this);
     this.handleRemoveTask = this.handleRemoveTask.bind(this);
+    this.handleEditTask = this.handleEditTask.bind(this);
+
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleEditTask() {
+  handleInputChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  handleOpenTaskCardForEdit() {
     this.props.changeEditCardId(this.taskId);
   }
 
@@ -27,6 +39,27 @@ export default class TaskCard extends Component {
     this.props.deleteTask(this.taskId);
   }
 
+  handleEditTask(e) {
+    e.preventDefault();
+
+    const color = determineСardСolorByTaskReward(this.state.reward);
+
+    const editedCard = {
+      id: this.taskId,
+      reward: this.state.reward,
+      description: this.state.description,
+      color,
+    }
+
+    this.props.editTaskCard(editedCard);
+    this.props.changeEditCardId(null);
+
+    this.setState({
+      reward: this.state.reward,
+      description: this.state.description,
+    });
+  }
+
   render() {
     return this.props.isEditTask ? (
       <article className="edit-task-card">
@@ -34,7 +67,7 @@ export default class TaskCard extends Component {
           <p className="edit-task-card__title">Change task</p>
         </div>
 
-        <form className="edit-task-form">
+        <form className="edit-task-form" onSubmit={(e) => this.handleEditTask(e)}>
           <div className="edit-task-card__body">
             <div className="edit-task-form__title">
               <label className="description-title">Title</label>
@@ -42,7 +75,8 @@ export default class TaskCard extends Component {
                 className="description-textarea"
                 name="description"
                 required
-                defaultValue={this.description}>
+                onChange={this.handleInputChange}
+                defaultValue={this.props.description}>
               </textarea>
             </div>
             <div className="edit-task-form__reward">
@@ -53,7 +87,8 @@ export default class TaskCard extends Component {
                 type="number"
                 min="50" max="250"
                 required
-                defaultValue={this.reward}>
+                onChange={this.handleInputChange}
+                defaultValue={this.props.reward}>
               </input>
             </div>
           </div>
@@ -74,13 +109,13 @@ export default class TaskCard extends Component {
         </form>
       </article>
     ) : (
-      <button onClick={this.handleEditTask}>
-        <div className="task-card" style={{ backgroundColor: this.color }}>
+      <button onClick={this.handleOpenTaskCardForEdit}>
+        <div className="task-card" style={{ backgroundColor: this.props.color }}>
           <header className="task-card__header">
-            <p className="task-card__reward">{this.reward}</p>
+            <p className="task-card__reward">{this.props.reward}</p>
           </header>
           <main className="task-card__body">
-            <p className="task-card__description">{this.description}</p>
+            <p className="task-card__description">{this.props.description}</p>
           </main>
         </div>
       </button>
