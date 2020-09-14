@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import determineСardСolorByTaskReward from '../../Core/determineСardСolorByTaskReward';
+import { handleChange } from '../../Common/utils/handleChange';
 import './taskCard.scss';
 
 export default class TaskCard extends Component {
@@ -22,9 +23,7 @@ export default class TaskCard extends Component {
   }
 
   handleInputChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    handleChange(e, this);
   }
 
   handleOpenTaskCardForEdit() {
