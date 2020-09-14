@@ -38,11 +38,11 @@ export default class HomePageForParent extends Component {
     })
   }
 
-  editTaskCard(editedCard) {
+  editTaskCard(editedTask) {
     this.setState((prevState) => ({
       tasks: prevState.tasks.map(task => {
-        if (task.id === editedCard.id) {
-          return editedCard;
+        if (task.id === editedTask.id) {
+          return editedTask;
         } else {
           return task;
         }

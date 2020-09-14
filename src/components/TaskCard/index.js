@@ -43,14 +43,14 @@ export default class TaskCard extends Component {
 
     const color = determineСardСolorByTaskReward(this.state.reward);
 
-    const editedCard = {
+    const editedTask = {
       id: this.taskId,
       reward: this.state.reward,
       description: this.state.description,
       color,
     }
 
-    this.props.editTaskCard(editedCard);
+    this.props.editTaskCard(editedTask);
     this.props.changeEditCardId(null);
 
     this.setState({
