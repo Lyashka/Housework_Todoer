@@ -1,11 +1,12 @@
 import React from 'react';
 import HomePageForParent from './components/HomePageForParent';
+import HomePageForChildren from './components/HomePageForChildren';
 import './basic.scss';
 
 function App() {
   return (
     <div className="App">
-      <HomePageForParent />
+      <HomePageForChildren />
     </div>
   );
 }

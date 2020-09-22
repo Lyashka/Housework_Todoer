@@ -34,21 +34,21 @@ export default class ParentPanel extends Component {
   render() {
     return (
       <>
-        <div className="container-user">
-          <div className="user">
-            <div className="user__avatar">
-              <img className="user__img" alt=""/>
+        <div className="container-parent">
+          <div className="parent">
+            <div className="parent__avatar">
+              <img className="parent__img" alt=""/>
             </div>
 
-            <div className="user__information">
-              <div className="user__header">
-                <a className="leave-user-button" href="@">
+            <div className="parent__information">
+              <div className="parent__header">
+                <a className="leave-parent-button" href="@">
                   Leave
               </a>
               </div>
-              <div className="user__body">
-                <div className="user__text">
-                  <p className="user__greeting">{'Hello, ' + this.name + '!'}</p>
+              <div className="parent__body">
+                <div className="parent__text">
+                  <p className="parent__greeting">{'Hello, ' + this.name + '!'}</p>
                   <button className="change-password-button" onClick={this.handleClickChangePassword}>Change password</button>
                 </div>
               </div>
@@ -56,10 +56,10 @@ export default class ParentPanel extends Component {
           </div>
           <div>
             {this.state.isChangePassword ?
-              <div className="user__footer">
-                <form className="user__form">
-                  <label className="label-for-user-password">New password
-                        <input className="user-password" type="password">
+              <div className="parent__footer">
+                <form className="parent__form">
+                  <label className="label-for-parent-password">New password
+                        <input className="parent-password" type="password">
                     </input>
                   </label>
                   <div className="buttons-change-password">

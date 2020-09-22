@@ -1,11 +1,11 @@
 @import '../../basic.scss';
 
-.container-user {
+.container-parent {
   @include flex-column();
   margin-bottom: 50px;
 }
 
-.user {
+.parent {
   @include flex-row();
   justify-content: space-between;
   width: 220px;
@@ -15,12 +15,12 @@
   border-radius: 8px;
 }
 
-.user__avatar {
+.parent__avatar {
   @include flex-column();
   justify-content: center;
 }
 
-.user__img {
+.parent__img {
   width: 70px;
   height: 70px;
   background-image: url(../../icons/Jack.svg);
@@ -28,18 +28,18 @@
   border-radius: 50%;
 }
 
-.user__information {
+.parent__information {
   @include flex-column();
   min-width: 120px;
 }
 
-.user__header {
+.parent__header {
   @include flex-row();
   justify-content: flex-end;
   margin-bottom: 20px;
 }
 
-.leave-user-button {
+.leave-parent-button {
   @include flex-row();
   justify-content: center;
   align-items: center;
@@ -64,22 +64,22 @@
   }
 }
 
-.user__body {
+.parent__body {
   @include flex-row();
   justify-content: space-around;
 }
 
-.user__footer {
+.parent__footer {
   @include flex-column();
 }
 
-.user__text {
+.parent__text {
   @include flex-column();
   justify-content: center;
   align-items: flex-start;
 }
 
-.user__greeting {
+.parent__greeting {
   color: #555555;
   margin-bottom: 10px;
 }
@@ -99,7 +99,7 @@
   }
 }
 
-.user__footer {
+.parent__footer {
   width: 220px;
   padding: 10px;
   background-color: #FFFFFF;
@@ -107,13 +107,13 @@
   border-bottom-left-radius: 8px;
 }
 
-.user__form {}
+.parent__form {}
 
-.label-for-user-password {
+.label-for-parent-password {
   font-size: 0.85em;
 }
 
-.user-password {
+.parent-password {
   border: 1px solid #555555;
   width: 100%;
   padding: 5px;
