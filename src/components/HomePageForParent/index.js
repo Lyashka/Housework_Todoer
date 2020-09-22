@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserPanel from '../UserPanel';
+import ParentPanel from '../ParentPanel';
 import TaskCardForEdit from '../TaskCardForEdit';
 import NewTaskCard from '../NewTaskCard';
 import { tasks } from '../../const';
@@ -55,7 +55,7 @@ export default class HomePageForParent extends Component {
       <div>
         <main className="container">
           <article className="user-panel">
-            <UserPanel role="parent" name="Jack" className=""/>
+            <ParentPanel name="Jack" className=""/>
           </article>
 
           <article className="main-section">

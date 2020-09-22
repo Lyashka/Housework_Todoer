@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import './userPanel.scss';
+import './parentPanel.scss';
 
-export default class UserCard extends Component {
+export default class ParentPanel extends Component {
   constructor(props) {
     super(props);
 
     this.name = this.props.name;
-    //this.role = this.props.role;
-    // Link to photo on the Internet
-    //this.pathToAvatar = '../icons/' + this.name;
 
     this.state = {
       isChangePassword: false,
