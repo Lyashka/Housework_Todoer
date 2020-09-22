@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import UserPanel from '../UserPanel';
-import TaskCard from '../TaskCard';
+import TaskCardForEdit from '../TaskCardForEdit';
 import NewTaskCard from '../NewTaskCard';
 import { tasks } from '../../const';
 import './homePageForParent.scss';
@@ -74,7 +74,7 @@ export default class HomePageForParent extends Component {
               <ul className="tasks">
                 {this.state.tasks.map((task) => (
                   <li className="task-item" key={task.id}>
-                  <TaskCard
+                  <TaskCardForEdit
                     taskId={task.id}
                     reward={task.reward}
                     description={task.description}
