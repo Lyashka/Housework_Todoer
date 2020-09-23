@@ -44,7 +44,7 @@ export default class ParentPanel extends Component {
               <div className="parent__header">
                 <a className="leave-parent-button" href="@">
                   Leave
-              </a>
+                </a>
               </div>
               <div className="parent__body">
                 <div className="parent__text">

@@ -18,7 +18,7 @@ export default class ChildrenPanel extends Component {
             <div className="child__avatar">
               {this.name === 'Lily' ?
               <img className="child__img" src={LilyImg} alt="Lily"/> :
-              <img className="child__img" src={MaryImg} alt="Lily"/>
+              <img className="child__img" src={MaryImg} alt="Mary"/>
               }
             </div>
 
