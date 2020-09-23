@@ -112,7 +112,7 @@ export default class TaskCardForEdit extends Component {
       reward={this.props.reward}
       description={this.props.description}
       color={this.props.color}
-      handleOpenTaskCardForEdit={this.handleOpenTaskCardForEdit}
+      handleOpenTaskCard={this.handleOpenTaskCardForEdit}
       />
     )
   }
