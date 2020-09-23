@@ -1,5 +1,5 @@
 import React from 'react';
-import HomePageForParent from './components/HomePageForParent';
+//import HomePageForParent from './components/HomePageForParent';
 import HomePageForChildren from './components/HomePageForChildren';
 import './basic.scss';
 

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import TaskCard from '../TaskCard';
-import RejectImg from '../../icons/close_task.svg';
-import AcceptImg from '../../icons/done_task.svg';
 import './taskCardForPerform.scss';
 
 export default class TaskCardForPerform extends Component {
