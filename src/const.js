@@ -37,3 +37,14 @@ export const tasks = [
     color: colorForEasiestTask
   }
 ];
+
+export const children = [
+{
+  name: 'Lily',
+  coinsSum: 425,
+},
+{
+  name: 'Mary',
+  coinsSum: 350,
+}
+];

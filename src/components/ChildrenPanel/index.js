@@ -8,18 +8,18 @@ export default class ChildrenPanel extends Component {
     super(props);
 
     this.name = this.props.name;
+    this.coinsSum = this.props.coinsSum;
   }
 
   render() {
+    const pathByName = this.name === 'Lily' ? LilyImg : MaryImg;
+
     return (
       <>
         <div className="container-child">
           <div className="child">
             <div className="child__avatar">
-              {this.name === 'Lily' ?
-              <img className="child__img" src={LilyImg} alt="Lily"/> :
-              <img className="child__img" src={MaryImg} alt="Mary"/>
-              }
+              <img className="child__img" src={pathByName} alt={this.name}/>
             </div>
 
             <div className="child__information">
@@ -31,7 +31,7 @@ export default class ChildrenPanel extends Component {
               <div className="child__body">
                 <div className="child__text">
                   <p className="child__greeting">{'Hello, ' + this.name + '!'}</p>
-                  <p className="child__reward">425 HC</p>
+                  <p className="child__reward">{this.coinsSum} HC</p>
                 </div>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ChildrenPanel from '../ChildrenPanel';
 import TaskCardForPerform from '../TaskCardForPerform';
-import { tasks } from '../../const';
+import { tasks, children } from '../../const';
 import './homePageForChildren.scss';
 
 export default class HomePageForChildren extends Component {
@@ -10,15 +10,19 @@ export default class HomePageForChildren extends Component {
 
     this.state = {
       tasks: [...tasks],
+      child: children[0],
     };
   }
 
   render() {
+    console.log(this.state.child);
     return (
       <div>
         <main className="container">
           <article className="user-panel">
-            <ChildrenPanel role="children" name="Lily" className=""/>
+            <ChildrenPanel
+            name={this.state.child.name}
+            coinsSum={this.state.child.coinsSum}/>
           </article>
 
           <article className="main-section">
