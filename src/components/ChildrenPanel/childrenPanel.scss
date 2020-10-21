@@ -1,0 +1,90 @@
+@import '../../basic.scss';
+
+.container-child {
+  @include flex-column();
+  margin-bottom: 50px;
+}
+
+.child {
+  @include flex-row();
+  justify-content: space-between;
+  width: 220px;
+  height: 110px;
+  padding: 10px;
+  background-color: #FFE8DB;
+  border-radius: 8px;
+}
+
+.child__avatar {
+  @include flex-column();
+  justify-content: center;
+}
+
+.child__img {
+  width: 70px;
+  height: 70px;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.child__information {
+  @include flex-column();
+  min-width: 120px;
+}
+
+.child__header {
+  @include flex-row();
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.leave-child-button {
+  @include flex-row();
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 20px;
+  font-size: 0.7em;
+  color: #555555;
+  background-image: url(../../icons/exit_to_app.svg);
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
+
+  &:hover {
+    color: #000000;
+    background-image: url(../../icons/exit_to_app_hover.svg);
+  }
+
+  &:active {
+    color: #FF8933;
+    background-image: url(../../icons/exit_to_app_active.svg);
+  }
+}
+
+.child__body {
+  @include flex-row();
+  justify-content: flex-start;
+}
+
+.child__footer {
+  @include flex-column();
+}
+
+.child__text {
+  @include flex-column();
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.child__greeting {
+  color: #555555;
+  margin-bottom: 5px;
+}
+
+.child__reward {
+  background-color: #FF8933;
+  color: #FFFFFF;
+  padding: 5px;
+}
