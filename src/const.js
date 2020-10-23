@@ -42,9 +42,11 @@ export const children = [
 {
   name: 'Lily',
   coinsSum: 425,
+  completedTasks: [],
 },
 {
   name: 'Mary',
   coinsSum: 350,
+  completedTasks: [],
 }
 ];
