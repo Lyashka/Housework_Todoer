@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import TaskCard from '../TaskCard';
 import './taskCardForConfirm.scss';
 
 export default class TaskCardForConfirm extends Component {
   constructor(props) {
     super(props);
 
+    this.taskId = this.props.taskId;
     this.description = this.props.description;
     this.reward = this.props.reward;
 
@@ -21,6 +21,10 @@ export default class TaskCardForConfirm extends Component {
     this.setState({
       isTaskComplete: true,
     })
+
+    setTimeout(() => {
+      this.props.handlerOfCompletedTask(this.taskId)
+    }, 2000);
   }
 
   handleRejectCompleteTask() {

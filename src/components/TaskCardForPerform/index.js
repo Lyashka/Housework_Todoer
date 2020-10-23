@@ -32,9 +32,11 @@ export default class TaskCardForPerform extends Component {
     return (
       this.state.isTaskConfirm ? (
         <TaskCardForConfirm
+        taskId={this.taskId}
         description={this.props.description}
         reward={this.props.reward}
         handleRejectConfirmTask={this.handleRejectConfirmTask}
+        handlerOfCompletedTask={this.props.handlerOfCompletedTask}
         />
       ) : (
           <TaskCard
