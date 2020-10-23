@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TaskCard from '../TaskCard';
+import TaskCardForConfirm from '../TaskCardForConfirm';
 import './taskCardForPerform.scss';
 
 export default class TaskCardForPerform extends Component {
@@ -8,7 +9,7 @@ export default class TaskCardForPerform extends Component {
     this.taskId = this.props.taskId;
 
     this.state = {
-      isTaskComplete: false,
+      isTaskConfirm: false,
     }
 
     this.handleOpenTaskToConfirm = this.handleOpenTaskToConfirm.bind(this);
@@ -17,39 +18,24 @@ export default class TaskCardForPerform extends Component {
 
   handleOpenTaskToConfirm() {
     this.setState ({
-      isTaskComplete: true,
+      isTaskConfirm: true,
     })
   }
 
   handleRejectConfirmTask() {
     this.setState ({
-      isTaskComplete: false,
+      isTaskConfirm: false,
     })
   }
 
   render() {
     return (
-      this.state.isTaskComplete ? (
-        <div className="task-card-confirmation">
-          <header className="task-card-confirmation__header confirmation-header">
-            <p className="confirmation-header__text">Did you {this.props.description}?</p>
-          </header>
-          <main className="task-card-confirmation__body">
-            <button className="task-card-confirmation__reject reject-task-complete" onClick={this.handleRejectConfirmTask}>
-              <div className="reject-task-complete__contour">
-                <div className="reject-task-complete__img"></div>
-              </div>
-
-              <p className="reject-task-complete__text">No, maybe later</p>
-            </button>
-            <button className="task-card-confirmation__accept accept-task-complete">
-              <div className="accept-task-complete__contour">
-                <div className="accept-task-complete__img"></div>
-              </div>
-              <p className="accept-task-complete__text">Yes, I did!</p>
-            </button>
-          </main>
-        </div>
+      this.state.isTaskConfirm ? (
+        <TaskCardForConfirm
+        description={this.props.description}
+        reward={this.props.reward}
+        handleRejectConfirmTask={this.handleRejectConfirmTask}
+        />
       ) : (
           <TaskCard
             handleOpenTaskCard={this.handleOpenTaskToConfirm}

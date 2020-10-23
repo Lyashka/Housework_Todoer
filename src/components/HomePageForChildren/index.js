@@ -15,7 +15,6 @@ export default class HomePageForChildren extends Component {
   }
 
   render() {
-    console.log(this.state.child);
     return (
       <div>
         <main className="container">
