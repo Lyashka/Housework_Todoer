@@ -10,26 +10,29 @@ export default class HomePageForChildren extends Component {
 
     this.state = {
       tasks: [...tasks],
-      child: children[0],
+      name: children[0].name,
+      coinsSum: children[0].coinsSum,
+      completedTasks: children[0].completedTasks,
     };
 
     this.handlerOfCompletedTask = this.handlerOfCompletedTask.bind(this);
+    this.handlerForAddCoins = this.handlerForAddCoins.bind(this);
   }
 
   handlerOfCompletedTask(taskId) {
-    const currentCompletedTasks = this.state.child.completedTasks;
-    const newCompletedTask = this.state.tasks.filter(task => task.id === taskId);
-
-    this.setState((prevState) => ({
-      child: {
-        ...prevState.child,
-        completedTasks: [...currentCompletedTasks, newCompletedTask],
-    }
-    }));
-
     this.setState((prevState) => ({
       tasks: prevState.tasks.filter(task => task.id !== taskId),
     }));
+  }
+
+  handlerForAddCoins(taskId) {
+    const newCompletedTask = this.state.tasks.filter(task => task.id === taskId);
+
+    this.setState((prevState) => ({
+      coinsSum: prevState.coinsSum + newCompletedTask[0].reward,
+    }));
+
+    console.log(this.state.coinsSum)
   }
 
   render() {
@@ -38,8 +41,8 @@ export default class HomePageForChildren extends Component {
         <main className="container">
           <article className="user-panel">
             <ChildrenPanel
-            name={this.state.child.name}
-            coinsSum={this.state.child.coinsSum}/>
+            name={this.state.name}
+            coinsSum={this.state.coinsSum}/>
           </article>
 
           <article className="main-section">
@@ -64,6 +67,7 @@ export default class HomePageForChildren extends Component {
                     description={task.description}
                     color={task.color}
                     handlerOfCompletedTask={this.handlerOfCompletedTask}
+                    handlerForAddCoins={this.handlerForAddCoins}
                   />
                 </li>
                 ))}

@@ -37,6 +37,7 @@ export default class TaskCardForPerform extends Component {
         reward={this.props.reward}
         handleRejectConfirmTask={this.handleRejectConfirmTask}
         handlerOfCompletedTask={this.props.handlerOfCompletedTask}
+        handlerForAddCoins={this.props.handlerForAddCoins}
         />
       ) : (
           <TaskCard

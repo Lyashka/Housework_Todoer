@@ -12,6 +12,7 @@ export default class ChildrenPanel extends Component {
   }
 
   render() {
+    console.log(this.coinsSum)
     const pathByName = this.name === 'Lily' ? LilyImg : MaryImg;
 
     return (
