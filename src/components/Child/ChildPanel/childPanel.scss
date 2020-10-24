@@ -1,4 +1,4 @@
-@import '../../basic.scss';
+@import '../../../basic.scss';
 
 .container-child {
   @include flex-column();
@@ -46,7 +46,7 @@
   height: 20px;
   font-size: 0.7em;
   color: #555555;
-  background-image: url(../../icons/exit_to_app.svg);
+  background-image: url(../../../icons/exit_to_app.svg);
   background-size: 20%;
   background-repeat: no-repeat;
   background-position-x: right;
@@ -54,12 +54,12 @@
 
   &:hover {
     color: #000000;
-    background-image: url(../../icons/exit_to_app_hover.svg);
+    background-image: url(../../../icons/exit_to_app_hover.svg);
   }
 
   &:active {
     color: #FF8933;
-    background-image: url(../../icons/exit_to_app_active.svg);
+    background-image: url(../../../icons/exit_to_app_active.svg);
   }
 }
 

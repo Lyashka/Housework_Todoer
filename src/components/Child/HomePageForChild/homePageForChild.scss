@@ -1,4 +1,4 @@
-@import '../../basic.scss';
+@import '../../../basic.scss';
 
 .container {
   @include flex-row();
@@ -65,7 +65,7 @@
 .footer {
   width: 100vw;
   height: 20vh;
-  background-image: url(../../icons/background_for_home_page.png);
+  background-image: url(../../../icons/background_for_home_page.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
