@@ -1,6 +1,6 @@
 import React from 'react';
 //import HomePageForParent from './components/Parent/HomePageForParent';
-import HomePageForChildren from './components/Child/HomePageForChildren';
+import HomePageForChildren from './components/Child/HomePageForChild';
 import './basic.scss';
 
 function App() {

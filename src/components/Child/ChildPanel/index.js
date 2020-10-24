@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LilyImg from '../../../icons/Lily.svg';
 import MaryImg from '../../../icons/Mary.svg';
-import './childrenPanel.scss';
+import './childPanel.scss';
 
 export default class ChildrenPanel extends Component {
   render() {

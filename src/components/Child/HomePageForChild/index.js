@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import ChildrenPanel from '../ChildrenPanel';
+import ChildrenPanel from '../ChildPanel';
 import TaskCardForPerform from '../../TaskCardForPerform';
 import { tasks, children } from '../../../const.js';
-import './homePageForChildren.scss';
+import './homePageForChild.scss';
 
 export default class HomePageForChildren extends Component {
   constructor(props) {
@@ -17,6 +17,7 @@ export default class HomePageForChildren extends Component {
 
     this.handlerOfCompletedTask = this.handlerOfCompletedTask.bind(this);
     this.handlerForAddCoins = this.handlerForAddCoins.bind(this);
+    this.handlerForSaveCompletedTask = this.handlerForSaveCompletedTask.bind(this);
   }
 
   handlerOfCompletedTask(taskId) {
@@ -30,6 +31,14 @@ export default class HomePageForChildren extends Component {
 
     this.setState((prevState) => ({
       coinsSum: prevState.coinsSum + newCompletedTask[0].reward,
+    }));
+  }
+
+  handlerForSaveCompletedTask(taskId) {
+    const newCompletedTask = this.state.tasks.filter(task => task.id === taskId);
+
+    this.setState((prevState) => ({
+      completedTasks: [...prevState.completedTasks, newCompletedTask[0]],
     }));
   }
 
@@ -66,6 +75,7 @@ export default class HomePageForChildren extends Component {
                     color={task.color}
                     handlerOfCompletedTask={this.handlerOfCompletedTask}
                     handlerForAddCoins={this.handlerForAddCoins}
+                    handlerForSaveCompletedTask={this.handlerForSaveCompletedTask}
                   />
                 </li>
                 ))}

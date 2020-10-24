@@ -23,6 +23,7 @@ export default class TaskCardForConfirm extends Component {
     })
 
     setTimeout(() => {
+      this.props.handlerForSaveCompletedTask(this.taskId);
       this.props.handlerForAddCoins(this.taskId);
       this.props.handlerOfCompletedTask(this.taskId);
     }, 2000);
