@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ChildrenPanel from '../ChildrenPanel';
-import TaskCardForPerform from '../TaskCardForPerform';
-import { tasks, children } from '../../const';
+import TaskCardForPerform from '../../TaskCardForPerform';
+import { tasks, children } from '../../../const.js';
 import './homePageForChildren.scss';
 
 export default class HomePageForChildren extends Component {
@@ -31,8 +31,6 @@ export default class HomePageForChildren extends Component {
     this.setState((prevState) => ({
       coinsSum: prevState.coinsSum + newCompletedTask[0].reward,
     }));
-
-    console.log(this.state.coinsSum)
   }
 
   render() {

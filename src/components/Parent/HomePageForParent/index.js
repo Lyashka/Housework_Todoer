@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ParentPanel from '../ParentPanel';
-import TaskCardForEdit from '../TaskCardForEdit';
-import NewTaskCard from '../NewTaskCard';
-import { tasks } from '../../const';
+import TaskCardForEdit from '../../TaskCardForEdit';
+import TaskCardForCreate from '../../TaskCardForCreate';
+import { tasks } from '../../../const';
 import './homePageForParent.scss';
 
 export default class HomePageForParent extends Component {
@@ -87,7 +87,7 @@ export default class HomePageForParent extends Component {
                 </li>
                 ))}
                 <li className="task-item">
-                  <NewTaskCard addTaskToState={this.createNewTask}/>
+                  <TaskCardForCreate addTaskToState={this.createNewTask}/>
                 </li>
               </ul>
             </div>

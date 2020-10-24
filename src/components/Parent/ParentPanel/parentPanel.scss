@@ -1,4 +1,4 @@
-@import '../../basic.scss';
+@import '../../../basic.scss';
 
 .container-parent {
   @include flex-column();
@@ -23,7 +23,7 @@
 .parent__img {
   width: 70px;
   height: 70px;
-  background-image: url(../../icons/Jack.svg);
+  background-image: url(../../../icons/Jack.svg);
   background-size: contain;
   border-radius: 50%;
 }
@@ -47,7 +47,7 @@
   height: 20px;
   font-size: 0.7em;
   color: #555555;
-  background-image: url(../../icons/exit_to_app.svg);
+  background-image: url(../../../icons/exit_to_app.svg);
   background-size: 20%;
   background-repeat: no-repeat;
   background-position-x: right;
@@ -55,12 +55,12 @@
 
   &:hover {
     color: #000000;
-    background-image: url(../../icons/exit_to_app_hover.svg);
+    background-image: url(../../../icons/exit_to_app_hover.svg);
   }
 
   &:active {
     color: #FF8933;
-    background-image: url(../../icons/exit_to_app_active.svg);
+    background-image: url(../../../icons/exit_to_app_active.svg);
   }
 }
 
@@ -183,11 +183,11 @@
 }
 
 .avatar_lily {
-  background-image: url(../../icons/Lily.svg);
+  background-image: url(../../../icons/Lily.svg);
 }
 
 .avatar_mary {
-  background-image: url(../../icons/Mary.svg);
+  background-image: url(../../../icons/Mary.svg);
 }
 
 .child-user__text {

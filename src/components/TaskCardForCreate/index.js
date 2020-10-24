@@ -3,7 +3,7 @@ import determineСardСolorByTaskReward from '../../Core/determineСardСolorByT
 import { handleChange } from '../../Common/utils/handleChange';
 import './newTaskCard.scss';
 
-export default class NewTaskCard extends Component {
+export default class TaskCardForCreate extends Component {
   constructor(props) {
     super(props);
 
