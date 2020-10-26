@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ChildrenPanel from '../ChildPanel';
 import TaskCardForPerform from '../../TaskCardForPerform';
+import EmptyHistory from '../../EmptyHistory';
 import { tasks, children } from '../../../const.js';
 import './homePageForChild.scss';
 
@@ -13,11 +14,14 @@ export default class HomePageForChildren extends Component {
       name: children[0].name,
       coinsSum: children[0].coinsSum,
       completedTasks: children[0].completedTasks,
+      tabMainContent: "tasks",
     };
 
     this.handlerOfCompletedTask = this.handlerOfCompletedTask.bind(this);
     this.handlerForAddCoins = this.handlerForAddCoins.bind(this);
     this.handlerForSaveCompletedTask = this.handlerForSaveCompletedTask.bind(this);
+    this.handlerShowTabOfTasks = this.handlerShowTabOfTasks.bind(this);
+    this.handlerShowTabOfHistory = this.handlerShowTabOfHistory.bind(this);
   }
 
   handlerOfCompletedTask(taskId) {
@@ -42,32 +46,62 @@ export default class HomePageForChildren extends Component {
     }));
   }
 
+  handlerShowTabOfTasks() {
+    const buttonToDeactivate = document.getElementById('history');
+    buttonToDeactivate.classList.remove('active-item-nav');
+
+    const buttonToActivate = document.getElementById('tasks');
+    buttonToActivate.classList.add('active-item-nav');
+
+    this.setState({
+      tabMainContent: "tasks",
+    })
+  }
+
+  handlerShowTabOfHistory() {
+    const buttonToDeactivate = document.getElementById('tasks');
+    buttonToDeactivate.classList.remove('active-item-nav');
+
+    const buttonToActivate = document.getElementById('history');
+    buttonToActivate.classList.add('active-item-nav');
+
+    this.setState({
+      tabMainContent: "history",
+    })
+  }
+
   render() {
     return (
       <div>
         <main className="container">
           <article className="user-panel">
             <ChildrenPanel
-            name={this.state.name}
-            coinsSum={this.state.coinsSum}/>
+              name={this.state.name}
+              coinsSum={this.state.coinsSum} />
           </article>
 
           <article className="main-section">
             <nav>
               <ul className="navigation">
                 <li className="navigation__item">
-                  <button className="housework-item active-item-nav">Today’s housework</button>
+                  <button
+                  id="tasks"
+                  className="housework-item active-item-nav"
+                  onClick={this.handlerShowTabOfTasks}>Today’s housework</button>
                 </li>
                 <li className="navigation__item">
-                  <button className="history-item">History</button>
+                  <button
+                  id="history"
+                  className="history-item"
+                  onClick={this.handlerShowTabOfHistory}>History</button>
                 </li>
               </ul>
             </nav>
 
-            <div>
+            {this.state.tabMainContent === "tasks" ? (
               <ul className="tasks">
-                {this.state.tasks.map((task) => (
-                  <li className="task-item" key={task.id}>
+              {this.state.tasks.map((task) => (
+                <li className="task-item" key={task.id}>
                   <TaskCardForPerform
                     taskId={task.id}
                     reward={task.reward}
@@ -78,9 +112,11 @@ export default class HomePageForChildren extends Component {
                     handlerForSaveCompletedTask={this.handlerForSaveCompletedTask}
                   />
                 </li>
-                ))}
-              </ul>
-            </div>
+              ))}
+            </ul>
+            ) : (
+              <EmptyHistory />
+            )}
           </article>
 
         </main>

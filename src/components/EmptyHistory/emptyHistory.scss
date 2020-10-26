@@ -1,0 +1,25 @@
+@import '../../basic.scss';
+
+.empty-history {
+  @include flex-column();
+  position: relative;
+  justify-content: center;
+  align-items: center;;
+  min-height: 400px;
+  max-width: 700px;
+
+  background-color: #FFE8DB;
+  border-radius: 8px;
+}
+
+.empty-history__text {
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+.empty-history__cat {
+  position: absolute;
+  width: 160px;
+  bottom: 0;
+  right: 15px;
+}
