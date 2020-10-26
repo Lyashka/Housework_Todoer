@@ -14,14 +14,14 @@ export default class HomePageForChildren extends Component {
       name: children[0].name,
       coinsSum: children[0].coinsSum,
       completedTasks: children[0].completedTasks,
-      showMainContent: "tasks",
+      tabMainContent: "tasks",
     };
 
     this.handlerOfCompletedTask = this.handlerOfCompletedTask.bind(this);
     this.handlerForAddCoins = this.handlerForAddCoins.bind(this);
     this.handlerForSaveCompletedTask = this.handlerForSaveCompletedTask.bind(this);
-    this.handlerOfTasksState = this.handlerOfTasksState.bind(this);
-    this.handlerOfHistoryState = this.handlerOfHistoryState.bind(this);
+    this.handlerShowTabOfTasks = this.handlerShowTabOfTasks.bind(this);
+    this.handlerShowTabOfHistory = this.handlerShowTabOfHistory.bind(this);
   }
 
   handlerOfCompletedTask(taskId) {
@@ -46,7 +46,7 @@ export default class HomePageForChildren extends Component {
     }));
   }
 
-  handlerOfTasksState() {
+  handlerShowTabOfTasks() {
     const buttonToDeactivate = document.getElementById('history');
     buttonToDeactivate.classList.remove('active-item-nav');
 
@@ -54,11 +54,11 @@ export default class HomePageForChildren extends Component {
     buttonToActivate.classList.add('active-item-nav');
 
     this.setState({
-      showMainContent: "tasks",
+      tabMainContent: "tasks",
     })
   }
 
-  handlerOfHistoryState() {
+  handlerShowTabOfHistory() {
     const buttonToDeactivate = document.getElementById('tasks');
     buttonToDeactivate.classList.remove('active-item-nav');
 
@@ -66,7 +66,7 @@ export default class HomePageForChildren extends Component {
     buttonToActivate.classList.add('active-item-nav');
 
     this.setState({
-      showMainContent: "history",
+      tabMainContent: "history",
     })
   }
 
@@ -87,18 +87,18 @@ export default class HomePageForChildren extends Component {
                   <button
                   id="tasks"
                   className="housework-item active-item-nav"
-                  onClick={this.handlerOfTasksState}>Today’s housework</button>
+                  onClick={this.handlerShowTabOfTasks}>Today’s housework</button>
                 </li>
                 <li className="navigation__item">
                   <button
                   id="history"
                   className="history-item"
-                  onClick={this.handlerOfHistoryState}>History</button>
+                  onClick={this.handlerShowTabOfHistory}>History</button>
                 </li>
               </ul>
             </nav>
 
-            {this.state.showMainContent === "tasks" ? (
+            {this.state.tabMainContent === "tasks" ? (
               <ul className="tasks">
               {this.state.tasks.map((task) => (
                 <li className="task-item" key={task.id}>
