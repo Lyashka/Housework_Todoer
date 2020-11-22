@@ -50,3 +50,12 @@ export const children = [
   completedTasks: [],
 }
 ];
+
+export const completedTasks = [
+  {
+    id: uuidv4(),
+    reward: 125,
+    description: "Find dad’s wallet",
+    color: colorForDifficultTask
+  },
+];

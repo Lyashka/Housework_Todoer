@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ChildrenPanel from '../ChildPanel';
 import TaskCardForPerform from '../../TaskCardForPerform';
-import EmptyHistory from '../../EmptyHistory';
+//import EmptyHistory from '../../EmptyHistory';
+import HistoryCompletedTasks from '../../HistoryCompletedTasks';
 import { tasks, children } from '../../../const.js';
 import './homePageForChild.scss';
 
@@ -115,7 +116,7 @@ export default class HomePageForChildren extends Component {
               ))}
             </ul>
             ) : (
-              <EmptyHistory />
+              <HistoryCompletedTasks />
             )}
           </article>
 
