@@ -54,13 +54,3 @@ body {
   color: #373737;
   background: #f7f7f7;
 }
-
-@mixin flex-row {
-  display: flex;
-  flex-direction: row;
-}
-
-@mixin flex-column {
-  display: flex;
-  flex-direction: column;
-}
