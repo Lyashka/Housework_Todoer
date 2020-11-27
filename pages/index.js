@@ -1,5 +1,11 @@
-function HomePage() {
-  return <div>To enable netlify checkboxes</div>
-}
+import Page from '../components/Page';
 
-export default HomePage;
+function App() {
+  return (
+    <>
+      <Page user/>
+    </>
+  )
+};
+
+export default App;
