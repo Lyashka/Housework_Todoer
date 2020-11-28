@@ -16,12 +16,7 @@ module.exports = {
     "prettier"
   ],
   "rules": {
-    "class-methods-use-this": "off",
-    "no-underscore-dangle": "off",
-    "import/prefer-default-export": "off",
-    "consistent-return": "off",
-    "array-callback-return": "off",
-    "import/no-absolute-path": "off",
+    "react/destructuring-assignment": "never",
   },
   "settings": {
     "import/resolver": {
