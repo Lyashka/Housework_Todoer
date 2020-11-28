@@ -11,11 +11,12 @@ const CardContainer = styled.div`
   ${ColContainer}
   justify-content: flex-start;
   position: relative;
-  width: 60%;
-  height: 10em;
+  width: 80%;
+  height: 8em;
   padding: 10px;
   background-color: #FFE8DB;
   border-radius: 8px;
+  z-index: 1;
 `;
 
 const ParentAvatar = styled.div`
@@ -103,9 +104,103 @@ const ChangePasswordButton = styled.button`
   }
 `;
 
+const ParentFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -10px;
+  width: 80%;
+  padding: 20px 10px 10px 10px;
+  background-color: #FFFFFF;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  z-index: 0;
+`;
+
+const ParentForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ParentLabel = styled.label`
+  font-size: 0.85em;
+`;
+
+const ButtonsChangePassword = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: 0.9em;
+`;
+
+const ParentPassword = styled.input`
+  border: 1px solid #555555;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+`;
+
+const RejectChangePasswordButton = styled.button`
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #F95D66;
+  color:#F95D66;
+
+  &:hover {
+    box-shadow: 0px 10px 12px -6px #F95D66;
+  }
+
+  &:active {
+    background-color: #F95D66;
+    color: #FFFFFF;
+  }
+`;
+
+const AcceptChangePasswordButton = styled.button`
+  padding: 5px;
+  color: #FFFFFF;
+  background-color: #FF8933;
+
+  &:hover {
+    box-shadow: 0px 10px 12px -6px #FF8933;
+  }
+
+  &:active {
+    background-color: #FFFFFF;
+    color: #FF8933;
+    border: 1px solid #FF8933;
+  }
+`;
+
 class UserCard extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isChangePassword: false,
+    }
+  }
+
+  handleClickChangePassword = () => {
+    this.setState({
+      isChangePassword: true,
+    })
+  }
+
+  handleRejectChangePassword = () => {
+    this.setState({
+      isChangePassword: false,
+    })
+  }
+
+  handleAcceptChangePassword = () => {
+    //TO DO: create when will add auth
+  }
+
   render() {
     return (
+      <>
       <CardContainer>
 
         <ParentAvatar>
@@ -124,7 +219,7 @@ class UserCard extends React.Component {
               <ParentGreeting>
                 {'Hello, ' + this.props.name + '!'}
               </ParentGreeting>
-              <ChangePasswordButton>
+              <ChangePasswordButton onClick={this.handleClickChangePassword}>
                 Change password
               </ChangePasswordButton>
             </ParentText>
@@ -132,6 +227,25 @@ class UserCard extends React.Component {
         </ParentBody>
 
       </CardContainer>
+
+      {this.state.isChangePassword &&
+        <ParentFooter>
+          <ParentForm>
+            <ParentLabel>New password
+                    <ParentPassword type="password" />
+            </ParentLabel>
+            <ButtonsChangePassword>
+              <RejectChangePasswordButton type="button" onClick={this.handleRejectChangePassword}>
+                Cancel
+                  </RejectChangePasswordButton>
+              <AcceptChangePasswordButton type="submit">
+                Save
+                  </AcceptChangePasswordButton>
+            </ButtonsChangePassword>
+          </ParentForm>
+        </ParentFooter>
+      }
+      </>
     );
   }
 }
