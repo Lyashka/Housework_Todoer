@@ -15,12 +15,12 @@ const Content = styled.main`
   flex-direction: row;
   flex: 1 0 auto;
   z-index: 1;
-  padding: 50px 100px 0px 30px;
+  padding: 5vh 10vw 0vh 5vw;
 `;
 
 const Footer = styled.footer`
   position: relative;
-  height: 15em;
+  height: 20vh;
   z-index: 0;
 `;
 
@@ -31,7 +31,7 @@ const BackgroundFooter = styled.img.attrs(props => ({
   bottom: 0;
   left: 0;
   height: 100%;
-  width: 25em;
+  width: auto;
 `;
 
 function Page(props) {
