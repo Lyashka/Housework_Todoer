@@ -11,9 +11,9 @@ const CardContainer = styled.div`
   ${ColContainer}
   justify-content: flex-start;
   position: relative;
-  width: 80%;
-  height: 8em;
-  padding: 10px;
+  width: 65%;
+  height: 10em;
+  padding: 15px;
   background-color: #FFE8DB;
   border-radius: 8px;
   z-index: 1;
@@ -68,8 +68,8 @@ const LeaveParentButton = styled.a`
 
 const ParentBody = styled.div`
   ${RowContainer}
-  justify-content: space-around;
-  padding: 10px 0px 0px 80px;
+  justify-content: flex-start;
+  padding: 10px 0px 0px 100px;
   font-size: 1.2em;
 `;
 
@@ -109,8 +109,8 @@ const ParentFooter = styled.div`
   flex-direction: column;
   position: relative;
   top: -10px;
-  width: 80%;
-  padding: 20px 10px 10px 10px;
+  width: 65%;
+  padding: 20px 15px 15px 15px;
   background-color: #FFFFFF;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -173,7 +173,7 @@ const AcceptChangePasswordButton = styled.button`
   }
 `;
 
-class UserCard extends React.Component {
+class ParentCard extends React.Component {
   constructor(props) {
     super(props);
 
@@ -199,7 +199,7 @@ class UserCard extends React.Component {
   }
 
   render() {
-    const greeting = `Hello, ${this.props.name} + !`;
+    const greeting = `Hello, ${this.props.name}!`;
     return (
       <>
         <CardContainer>
@@ -253,4 +253,4 @@ class UserCard extends React.Component {
   }
 }
 
-export default UserCard;
+export default ParentCard;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import UserCard from '../../UserCard';
+import ParentCard from '../../ParentCard';
 
 const UsersPanel = styled.section`
   display: flex;
@@ -14,7 +14,7 @@ const UsersPanel = styled.section`
 function SideBar() {
   return (
     <UsersPanel>
-      <UserCard name="Jack" />
+      <ParentCard name="Jack" />
     </UsersPanel>
   );
 }
