@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ColContainer from '../containers/colContainer.js';
-import RowContainer from '../containers/rowContainer.js';
+import ColContainer from '../containers/colContainer';
+import RowContainer from '../containers/rowContainer';
 import Avatar from '../../src/icons/Jack.svg';
 import ExitImage from '../../src/icons/exit_to_app.svg';
 import ExitImageHover from '../../src/icons/exit_to_app_hover.svg';
@@ -27,7 +27,7 @@ const ParentAvatar = styled.div`
   top: 20%;
 `;
 
-const ParentImg = styled.img.attrs(props => ({
+const ParentImg = styled.img.attrs((props) => ({
   src: props.src,
 }))`
   width: 80px;
@@ -179,72 +179,75 @@ class UserCard extends React.Component {
 
     this.state = {
       isChangePassword: false,
-    }
+    };
   }
 
   handleClickChangePassword = () => {
     this.setState({
       isChangePassword: true,
-    })
+    });
   }
 
   handleRejectChangePassword = () => {
     this.setState({
       isChangePassword: false,
-    })
+    });
   }
 
   handleAcceptChangePassword = () => {
-    //TO DO: create when will add auth
+    // TO DO: create when will add auth
   }
 
   render() {
+    const greeting = `Hello, ${this.props.name} + !`;
     return (
       <>
-      <CardContainer>
+        <CardContainer>
 
-        <ParentAvatar>
-          <ParentImg src={Avatar} />
-        </ParentAvatar>
+          <ParentAvatar>
+            <ParentImg src={Avatar} />
+          </ParentAvatar>
 
-        <ParentHeader>
-          <LeaveParentButton href="!#">
-            Leave
-          </LeaveParentButton>
-        </ParentHeader>
+          <ParentHeader>
+            <LeaveParentButton href="!#">
+              Leave
+            </LeaveParentButton>
+          </ParentHeader>
 
-        <ParentBody>
-          <ParentInformation>
-            <ParentText>
-              <ParentGreeting>
-                {'Hello, ' + this.props.name + '!'}
-              </ParentGreeting>
-              <ChangePasswordButton onClick={this.handleClickChangePassword}>
-                Change password
-              </ChangePasswordButton>
-            </ParentText>
-          </ParentInformation>
-        </ParentBody>
+          <ParentBody>
+            <ParentInformation>
+              <ParentText>
+                <ParentGreeting>
+                  {greeting}
+                </ParentGreeting>
+                <ChangePasswordButton onClick={this.handleClickChangePassword}>
+                  Change password
+                </ChangePasswordButton>
+              </ParentText>
+            </ParentInformation>
+          </ParentBody>
 
-      </CardContainer>
+        </CardContainer>
 
-      {this.state.isChangePassword &&
-        <ParentFooter>
-          <ParentForm>
-            <ParentLabel>New password
-                    <ParentPassword type="password" />
-            </ParentLabel>
-            <ButtonsChangePassword>
-              <RejectChangePasswordButton type="button" onClick={this.handleRejectChangePassword}>
-                Cancel
-                  </RejectChangePasswordButton>
-              <AcceptChangePasswordButton type="submit">
-                Save
-                  </AcceptChangePasswordButton>
-            </ButtonsChangePassword>
-          </ParentForm>
-        </ParentFooter>
-      }
+        {this.state.isChangePassword
+          && (
+          <ParentFooter>
+            <ParentForm>
+              <ParentLabel>
+                New password
+                <ParentPassword type="password" />
+              </ParentLabel>
+              <ButtonsChangePassword>
+                <RejectChangePasswordButton type="button" onClick={this.handleRejectChangePassword}>
+                  Cancel
+                </RejectChangePasswordButton>
+                <AcceptChangePasswordButton type="submit">
+                  Save
+                </AcceptChangePasswordButton>
+              </ButtonsChangePassword>
+            </ParentForm>
+          </ParentFooter>
+          )}
       </>
     );
   }

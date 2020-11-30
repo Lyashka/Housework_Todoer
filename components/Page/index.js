@@ -24,7 +24,7 @@ const Footer = styled.footer`
   z-index: 0;
 `;
 
-const BackgroundFooter = styled.img.attrs(props => ({
+const BackgroundFooter = styled.img.attrs((props) => ({
   src: props.src,
 }))`
   position: absolute;
@@ -34,20 +34,20 @@ const BackgroundFooter = styled.img.attrs(props => ({
   width: auto;
 `;
 
-function Page(props) {
-  return(
+function Page({ user }) {
+  return (
     <PageContainer>
       <Content>
         <SideBar />
         <MainContent />
       </Content>
-      {props.user && (
+      {user && (
         <Footer>
-          <BackgroundFooter src={ImageFooter}/>
+          <BackgroundFooter src={ImageFooter} />
         </Footer>
       )}
     </PageContainer>
-  )
+  );
 }
 
 export default Page;

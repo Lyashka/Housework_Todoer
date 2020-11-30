@@ -11,7 +11,7 @@ const Content = styled.section`
 `;
 
 function MainContent() {
-  return(
+  return (
     <Content />
   );
 }

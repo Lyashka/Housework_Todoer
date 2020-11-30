@@ -12,9 +12,9 @@ const UsersPanel = styled.section`
 `;
 
 function SideBar() {
-  return(
+  return (
     <UsersPanel>
-      <UserCard name="Jack"/>
+      <UserCard name="Jack" />
     </UsersPanel>
   );
 }
