@@ -29,7 +29,7 @@
     "build": "next build",
     "start": "next start"
   },
-  "browserslist": {
+  "browsersList": {
     "production": [
       ">0.2%",
       "not dead",
