@@ -4,9 +4,9 @@ import Page from '../components/Page';
 function App() {
   return (
     <>
-      <Page user/>
+      <Page user />
     </>
-  )
-};
+  );
+}
 
 export default App;
