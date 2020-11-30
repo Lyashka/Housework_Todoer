@@ -1,21 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import ColContainer from '../containers/colContainer';
-import RowContainer from '../containers/rowContainer';
-import Avatar from '../../src/icons/Jack.svg';
-import ExitImage from '../../src/icons/exit_to_app.svg';
-import ExitImageHover from '../../src/icons/exit_to_app_hover.svg';
-import ExitImageActive from '../../src/icons/exit_to_app_active.svg';
+import ColContainer from '../../containers/colContainer';
+import RowContainer from '../../containers/rowContainer';
+import Avatar from '../../../src/icons/Jack.svg';
+import ExitImage from '../../../src/icons/exit_to_app.svg';
+import ExitImageHover from '../../../src/icons/exit_to_app_hover.svg';
+import ExitImageActive from '../../../src/icons/exit_to_app_active.svg';
 
 const CardContainer = styled.div`
   ${ColContainer}
   justify-content: flex-start;
   position: relative;
-  width: 65%;
+  width: 70%;
   height: 10em;
   padding: 15px;
-  background-color: #FFE8DB;
   border-radius: 8px;
+  background-color: #FFE8DB;
   z-index: 1;
 `;
 
@@ -30,8 +30,8 @@ const ParentAvatar = styled.div`
 const ParentImg = styled.img.attrs((props) => ({
   src: props.src,
 }))`
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
 `;
 
@@ -109,9 +109,10 @@ const ParentFooter = styled.div`
   flex-direction: column;
   position: relative;
   top: -10px;
-  width: 65%;
+  width: 70%;
   padding: 20px 15px 15px 15px;
   background-color: #FFFFFF;
+  box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.15);
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
   z-index: 0;
