@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ColContainer from '../../../../containers/colContainer';
 import RowContainer from '../../../../containers/rowContainer';
@@ -174,84 +174,60 @@ const AcceptChangePasswordButton = styled.button`
   }
 `;
 
-class ParentCard extends React.Component {
-  constructor(props) {
-    super(props);
+function ParentCard(props) {
+  const greeting = `Hello, ${props.name}!`;
+  const [isChangePassword, setPassword] = useState(false);
 
-    this.state = {
-      isChangePassword: false,
-    };
-  }
+  return (
+    <>
+      <CardContainer>
 
-  handleClickChangePassword = () => {
-    this.setState({
-      isChangePassword: true,
-    });
-  }
+        <ParentAvatar>
+          <ParentImg src={Avatar} />
+        </ParentAvatar>
 
-  handleRejectChangePassword = () => {
-    this.setState({
-      isChangePassword: false,
-    });
-  }
+        <ParentHeader>
+          <LeaveParentButton href="!#">
+            Leave
+          </LeaveParentButton>
+        </ParentHeader>
 
-  handleAcceptChangePassword = () => {
-    // TO DO: create when will add auth
-  }
+        <ParentBody>
+          <ParentInformation>
+            <ParentText>
+              <ParentGreeting>
+                {greeting}
+              </ParentGreeting>
+              <ChangePasswordButton onClick={() => setPassword(true)}>
+                Change password
+              </ChangePasswordButton>
+            </ParentText>
+          </ParentInformation>
+        </ParentBody>
 
-  render() {
-    const greeting = `Hello, ${this.props.name}!`;
-    return (
-      <>
-        <CardContainer>
+      </CardContainer>
 
-          <ParentAvatar>
-            <ParentImg src={Avatar} />
-          </ParentAvatar>
-
-          <ParentHeader>
-            <LeaveParentButton href="!#">
-              Leave
-            </LeaveParentButton>
-          </ParentHeader>
-
-          <ParentBody>
-            <ParentInformation>
-              <ParentText>
-                <ParentGreeting>
-                  {greeting}
-                </ParentGreeting>
-                <ChangePasswordButton onClick={this.handleClickChangePassword}>
-                  Change password
-                </ChangePasswordButton>
-              </ParentText>
-            </ParentInformation>
-          </ParentBody>
-
-        </CardContainer>
-
-        {this.state.isChangePassword
-          && (
-          <ParentFooter>
-            <ParentForm>
-              <ParentLabel>
-                New password
-                <ParentPassword type="password" />
-              </ParentLabel>
-              <ButtonsChangePassword>
-                <RejectChangePasswordButton type="button" onClick={this.handleRejectChangePassword}>
-                  Cancel
-                </RejectChangePasswordButton>
-                <AcceptChangePasswordButton type="submit">
-                  Save
-                </AcceptChangePasswordButton>
-              </ButtonsChangePassword>
-            </ParentForm>
-          </ParentFooter>
-          )}
-      </>
-    );
-  }
+      {isChangePassword
+        && (
+        <ParentFooter>
+          <ParentForm>
+            <ParentLabel>
+              New password
+              <ParentPassword type="password" />
+            </ParentLabel>
+            <ButtonsChangePassword>
+              <RejectChangePasswordButton type="button" onClick={() => setPassword(false)}>
+                Cancel
+              </RejectChangePasswordButton>
+              <AcceptChangePasswordButton type="submit">
+                Save
+              </AcceptChangePasswordButton>
+            </ButtonsChangePassword>
+          </ParentForm>
+        </ParentFooter>
+        )}
+    </>
+  );
 }
 
 export default ParentCard;
