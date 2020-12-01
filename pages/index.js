@@ -1,10 +1,10 @@
 import React from 'react';
-import Page from '../components/Page';
+import ParentPage from '../components/ParentPage';
 
 function App() {
   return (
     <>
-      <Page user />
+      <ParentPage user />
     </>
   );
 }

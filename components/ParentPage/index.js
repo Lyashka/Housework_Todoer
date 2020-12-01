@@ -34,7 +34,7 @@ const BackgroundFooter = styled.img.attrs((props) => ({
   width: auto;
 `;
 
-function Page({ user }) {
+function ParentPage({ user }) {
   return (
     <PageContainer>
       <Content>
@@ -50,4 +50,4 @@ function Page({ user }) {
   );
 }
 
-export default Page;
+export default ParentPage;

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import ColContainer from '../../containers/colContainer';
-import RowContainer from '../../containers/rowContainer';
-import Avatar from '../../../src/icons/Jack.svg';
-import ExitImage from '../../../src/icons/exit_to_app.svg';
-import ExitImageHover from '../../../src/icons/exit_to_app_hover.svg';
-import ExitImageActive from '../../../src/icons/exit_to_app_active.svg';
+import ColContainer from '../../../../containers/colContainer';
+import RowContainer from '../../../../containers/rowContainer';
+import Avatar from '../../../../../src/icons/Jack.svg';
+import ExitImage from '../../../../../src/icons/exit_to_app.svg';
+import ExitImageHover from '../../../../../src/icons/exit_to_app_hover.svg';
+import ExitImageActive from '../../../../../src/icons/exit_to_app_active.svg';
 
 const CardContainer = styled.div`
   ${ColContainer}

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import RowContainer from '../../containers/rowContainer';
+import RowContainer from '../../../../containers/rowContainer';
 
 const CardContainer = styled.div`
   ${RowContainer}
