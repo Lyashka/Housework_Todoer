@@ -47,6 +47,12 @@ class MainContent extends React.Component {
     });
   }
 
+  createNewTask = (newTask) => {
+    this.setState((prevState) => ({
+      tasks: [...prevState.tasks, newTask],
+    }));
+  }
+
   render() {
     return (
       <Content>
@@ -62,6 +68,7 @@ class MainContent extends React.Component {
             ? (
               <CreateTaskCard
                 handleRejectCreateTask={this.handleRejectCreateTask}
+                addTaskToState={this.createNewTask}
               />
             )
             : <AddTaskCard handleCreateTask={this.handleCreateTask} />}

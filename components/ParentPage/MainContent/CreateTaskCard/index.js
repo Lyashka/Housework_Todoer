@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import RowContainer from '../../../containers/rowContainer';
 import ColContainer from '../../../containers/colContainer';
 import handleChange from '../../../../common/utils/handleChange';
+import determineСardСolorByTaskReward from '../../../../Core/determineCardColorByTaskReward';
 
 const FieldContainer = css`
   ${ColContainer};
@@ -135,13 +136,32 @@ class CreateTaskCard extends React.Component {
     handleChange(e, this);
   }
 
+  handleAcceptCreateTask(e) {
+    e.preventDefault();
+
+    const color = determineСardСolorByTaskReward(this.state.reward);
+    const newTask = {
+      reward: Number(this.state.reward),
+      description: this.state.description,
+      color,
+    };
+
+    this.props.addTaskToState(newTask);
+    this.props.handleRejectCreateTask();
+
+    this.setState({
+      description: '',
+      reward: '',
+    });
+  }
+
   render() {
     return (
       <CreateTaskContainer>
         <CreateTaskHeader>
           <CreateTaskTitle>New housework task</CreateTaskTitle>
         </CreateTaskHeader>
-        <CreateTaskForm>
+        <CreateTaskForm onSubmit={(e) => this.handleAcceptCreateTask(e)}>
           <CreateTaskBody>
             <FormTitle>
               <DescriptionTitle>Title</DescriptionTitle>
@@ -165,8 +185,8 @@ class CreateTaskCard extends React.Component {
             </ContainerReward>
           </CreateTaskBody>
           <CreateTaskFooter>
-            <CancelButton onClick={() => this.props.handleRejectCreateTask()}>Cancel</CancelButton>
-            <CreateTaskButton>Create</CreateTaskButton>
+            <CancelButton type="button" onClick={() => this.props.handleRejectCreateTask()}>Cancel</CancelButton>
+            <CreateTaskButton type="submit">Create</CreateTaskButton>
           </CreateTaskFooter>
         </CreateTaskForm>
       </CreateTaskContainer>
