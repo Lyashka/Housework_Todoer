@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import NavigationPanel from './NavigationPanel';
 import TaskCard from './TaskCard';
 import AddTaskCard from './AddTaskCard';
+import CreateTaskCard from './CreateTaskCard';
 import RowContainer from '../../containers/rowContainer';
 import ColContainer from '../../containers/colContainer';
 import { tasks } from '../../../const';
@@ -25,21 +26,50 @@ const Tasks = styled.ul`
   overflow-y: auto;
 `;
 
-function MainContent() {
-  return (
-    <Content>
-      <NavigationPanel />
-      <Tasks>
-        {tasks.map(({
-          id,
-          description,
-          reward,
-          color,
-        }) => <TaskCard key={id} color={color} description={description} reward={reward} />)}
-        <AddTaskCard />
-      </Tasks>
-    </Content>
-  );
+class MainContent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isCreateTask: false,
+      tasks: [...tasks],
+    };
+  }
+
+  handleCreateTask = () => {
+    this.setState({
+      isCreateTask: true,
+    });
+  }
+
+  handleRejectCreateTask = () => {
+    this.setState({
+      isCreateTask: false,
+    });
+  }
+
+  render() {
+    return (
+      <Content>
+        <NavigationPanel />
+        <Tasks>
+          {this.state.tasks.map(({
+            id,
+            description,
+            reward,
+            color,
+          }) => <TaskCard key={id} color={color} description={description} reward={reward} />)}
+          {this.state.isCreateTask
+            ? (
+              <CreateTaskCard
+                handleRejectCreateTask={this.handleRejectCreateTask}
+              />
+            )
+            : <AddTaskCard handleCreateTask={this.handleCreateTask} />}
+        </Tasks>
+      </Content>
+    );
+  }
 }
 
 export default MainContent;
