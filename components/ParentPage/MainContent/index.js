@@ -7,7 +7,6 @@ import AddTaskCard from './AddTaskCard';
 import CreateTaskCard from './CreateTaskCard';
 import RowContainer from '../../containers/rowContainer';
 import ColContainer from '../../containers/colContainer';
-import { tasks } from '../../../const';
 
 const Content = styled.section`
   ${ColContainer};
@@ -32,7 +31,7 @@ class MainContent extends React.Component {
 
     this.state = {
       isCreateTask: false,
-      tasks: [...tasks],
+      tasks: [...this.props.tasks],
     };
   }
 

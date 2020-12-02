@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import SideBar from './SideBar';
 import MainContent from './MainContent';
 import ImageFooter from '../../src/icons/background_for_home_page.png';
+import { tasks } from '../../const';
 
 const PageContainer = styled.div`
   display: flex;
@@ -39,7 +40,7 @@ function ParentPage({ user }) {
     <PageContainer>
       <Content>
         <SideBar />
-        <MainContent />
+        <MainContent tasks={tasks} />
       </Content>
       {user && (
         <Footer>
