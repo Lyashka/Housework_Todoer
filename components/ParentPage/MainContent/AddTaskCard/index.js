@@ -24,11 +24,11 @@ const Container = styled.div`
   margin-bottom: 45px;
 `;
 
-// TO DO: keyframes in styles components
-
 const AddTask = styled.p`
   color: #FF8933;
   font-weight: 100;
+  transform: rotateY(0deg);
+  transition: 1s;
 
   ${AddTaskButton}:hover & {
     transform: rotateY(180deg);
