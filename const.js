@@ -36,9 +36,14 @@ export const tasks = [
     description: 'Fix the pillowcase',
     color: colorForEasiestTask,
   },
+  {
+    id: uuidv4(),
+    reward: 50,
+    description: 'Check task',
+    color: colorForEasiestTask,
+  },
 ];
 
-// eslint-disable-next-line import/prefer-default-export
 export const users = [
   {
     id: uuidv4(),

@@ -3,15 +3,15 @@ import React from 'react';
 import styled from 'styled-components';
 import NavigationPanel from './NavigationPanel';
 import TaskCard from './TaskCard';
+import AddTaskCard from './AddTaskCard';
 import RowContainer from '../../containers/rowContainer';
+import ColContainer from '../../containers/colContainer';
 import { tasks } from '../../../const';
 
 const Content = styled.section`
-  display: flex;
-  flex-direction: column;
+  ${ColContainer};
   width: 70%;
   height: 75vh;
-  background-color: yellow;
 `;
 
 const Tasks = styled.ul`
@@ -36,6 +36,7 @@ function MainContent() {
           reward,
           color,
         }) => <TaskCard key={id} color={color} description={description} reward={reward} />)}
+        <AddTaskCard />
       </Tasks>
     </Content>
   );
