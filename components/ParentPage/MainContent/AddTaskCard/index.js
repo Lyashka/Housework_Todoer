@@ -43,7 +43,7 @@ const AddTask = styled.p`
 
 function AddTaskCard(props) {
   return (
-    <AddTaskButton onClick={() => props.handleCreateTask()}>
+    <AddTaskButton type="button" onClick={() => props.handleCreateTask()}>
       <Container>
         <AddTask>+</AddTask>
       </Container>
