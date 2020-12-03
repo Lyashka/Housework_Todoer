@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 import ColContainer from '../../../containers/colContainer';
 import RowContainer from '../../../containers/rowContainer';
 import ExitButton from '../../../../src/icons/delete_task.svg';
@@ -158,6 +159,26 @@ class Form extends React.Component {
     }));
   }
 
+  handleCreateTask(e) {
+    e.preventDefault();
+
+    const color = determineСardСolorByTaskReward(this.state.reward);
+    const newTask = {
+      id: uuidv4(),
+      reward: Number(this.state.reward),
+      description: this.state.description,
+      color,
+    };
+
+    this.props.addTaskToState(newTask);
+    this.props.handleCancelButton();
+
+    this.setState({
+      description: '',
+      reward: '',
+    });
+  }
+
   handleRemoveTask = () => {
     this.props.deleteTask(this.taskId);
   }
@@ -168,7 +189,10 @@ class Form extends React.Component {
         <HeaderForm>
           <TitleForm>{this.props.mainTitle}</TitleForm>
         </HeaderForm>
-        <BasicForm onSubmit={(e) => this.handleEditTask(e)}>
+        <BasicForm
+          onSubmit={this.props.edit
+            ? (e) => this.handleEditTask(e) : (e) => this.handleCreateTask(e)}
+        >
           <BodyForm>
             <FieldContainer>
               <Title>Title</Title>
@@ -177,6 +201,7 @@ class Form extends React.Component {
                 required
                 onChange={this.handleInputChange}
                 defaultValue={this.props.description}
+                autoFocus={this.props.create}
               />
             </FieldContainer>
             <FieldContainer>
@@ -195,7 +220,8 @@ class Form extends React.Component {
           <CreateTaskFooter>
             <CancelButton type="button" onClick={() => this.props.handleCancelButton()}>Cancel</CancelButton>
             <CreateTaskButton type="submit">Save</CreateTaskButton>
-            <DeleteButton type="button" onClick={this.handleRemoveTask}>Delete</DeleteButton>
+            {this.props.edit
+            && <DeleteButton type="button" onClick={this.handleRemoveTask}>Delete</DeleteButton>}
           </CreateTaskFooter>
         </BasicForm>
       </>

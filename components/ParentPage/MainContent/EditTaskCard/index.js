@@ -30,6 +30,7 @@ class EditTaskCard extends React.Component {
       this.props.isEditTask ? (
         <ContainerEditTask>
           <Form
+            edit
             taskId={this.taskId}
             mainTitle="Change task"
             description={this.props.description}
