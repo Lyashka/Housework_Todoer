@@ -93,9 +93,8 @@ class MainContent extends React.Component {
             reward,
             color,
           }) => (
-            <TaskItem>
+            <TaskItem key={id}>
               <EditTaskCard
-                key={id}
                 taskId={id}
                 color={color}
                 description={description}
