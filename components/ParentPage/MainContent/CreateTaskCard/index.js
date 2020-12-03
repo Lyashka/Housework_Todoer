@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { v4 as uuidv4 } from 'uuid';
 import RowContainer from '../../../containers/rowContainer';
 import ColContainer from '../../../containers/colContainer';
 import handleChange from '../../../../common/utils/handleChange';
@@ -141,6 +142,7 @@ class CreateTaskCard extends React.Component {
 
     const color = determineСardСolorByTaskReward(this.state.reward);
     const newTask = {
+      id: uuidv4(),
       reward: Number(this.state.reward),
       description: this.state.description,
       color,
