@@ -51,7 +51,7 @@ const CreateTaskBody = styled.div`
   background-color: #FFE8DB;
 `;
 
-const FormTitle = styled.div`
+const DescriptionContainer = styled.div`
   ${FieldContainer};
 `;
 
@@ -165,7 +165,7 @@ class CreateTaskCard extends React.Component {
         </CreateTaskHeader>
         <CreateTaskForm onSubmit={(e) => this.handleAcceptCreateTask(e)}>
           <CreateTaskBody>
-            <FormTitle>
+            <DescriptionContainer>
               <DescriptionTitle>Title</DescriptionTitle>
               <DescriptionTextarea
                 onChange={(e) => this.handleInputChange(e)}
@@ -173,7 +173,7 @@ class CreateTaskCard extends React.Component {
                 autoFocus
                 required
               />
-            </FormTitle>
+            </DescriptionContainer>
             <ContainerReward>
               <RewardTitle>Reward</RewardTitle>
               <RewardInput
