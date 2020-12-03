@@ -25,6 +25,12 @@ const Tasks = styled.ul`
   overflow-y: auto;
 `;
 
+const TaskItem = styled.li`
+  position: relative;
+  height: 200px;
+  margin: 0 10px;
+`;
+
 class MainContent extends React.Component {
   constructor(props) {
     super(props);
@@ -63,15 +69,35 @@ class MainContent extends React.Component {
             description,
             reward,
             color,
-          }) => <TaskCard key={id} color={color} description={description} reward={reward} />)}
+          }) => (
+            <TaskItem>
+              <EditTaskCard
+                key={id}
+                taskId={id}
+                color={color}
+                description={description}
+                reward={reward}
+                isEditTask={this.state.editTaskId === id}
+                deleteTask={this.deleteTask}
+                changeEditCardId={this.changeEditCardId}
+                editTaskCard={this.editTaskCard}
+              />
+            </TaskItem>
+          ))}
           {this.state.isCreateTask
             ? (
-              <CreateTaskCard
-                handleRejectCreateTask={this.handleRejectCreateTask}
-                addTaskToState={this.createNewTask}
-              />
+              <TaskItem>
+                <CreateTaskCard
+                  handleRejectCreateTask={this.handleRejectCreateTask}
+                  addTaskToState={this.createNewTask}
+                />
+              </TaskItem>
             )
-            : <AddTaskCard handleCreateTask={this.handleCreateTask} />}
+            : (
+              <TaskItem>
+                <AddTaskCard handleCreateTask={this.handleCreateTask} />
+              </TaskItem>
+            )}
         </Tasks>
       </Content>
     );

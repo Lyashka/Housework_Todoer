@@ -1,12 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TaskItem = styled.li`
-  position: relative;
-  height: 200px;
-  margin: 0 10px;
-`;
-
 const Card = styled.div`
   display: flex;
   flex-direction: column;
@@ -51,22 +45,20 @@ const Description = styled.p`
 
 function TaskCard(props) {
   return (
-    <TaskItem>
-      <button type="button" onClick={props.handleOpenTaskCard}>
-        <Card color={props.color}>
-          <Header>
-            <Reward>
-              {props.reward}
-            </Reward>
-          </Header>
-          <Main>
-            <Description>
-              {props.description}
-            </Description>
-          </Main>
-        </Card>
-      </button>
-    </TaskItem>
+    <button type="button" onClick={props.handleOpenTaskCard}>
+      <Card color={props.color}>
+        <Header>
+          <Reward>
+            {props.reward}
+          </Reward>
+        </Header>
+        <Main>
+          <Description>
+            {props.description}
+          </Description>
+        </Main>
+      </Card>
+    </button>
   );
 }
 

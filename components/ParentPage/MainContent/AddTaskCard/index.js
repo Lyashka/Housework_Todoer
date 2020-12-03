@@ -4,7 +4,6 @@ import RowContainer from '../../../containers/rowContainer';
 
 const AddTaskButton = styled.button`
   font-size: 100px;
-  margin: 0 10px;
   &:active {
     background-color: #FF8933;
     border-radius: 8px;
