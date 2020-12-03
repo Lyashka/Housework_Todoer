@@ -5,8 +5,6 @@ import MainContent from './MainContent';
 import ImageFooter from '../../src/icons/background_for_home_page.png';
 import { tasks } from '../../const';
 
-// TO DO: create global style (https://styled-components.com/docs/api#createglobalstyle)
-
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
