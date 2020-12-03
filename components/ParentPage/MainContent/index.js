@@ -2,9 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import NavigationPanel from './NavigationPanel';
-import TaskCard from './TaskCard';
 import AddTaskCard from './AddTaskCard';
 import CreateTaskCard from './CreateTaskCard';
+import EditTaskCard from './EditTaskCard';
 import RowContainer from '../../containers/rowContainer';
 import ColContainer from '../../containers/colContainer';
 
@@ -37,6 +37,7 @@ class MainContent extends React.Component {
 
     this.state = {
       isCreateTask: false,
+      editTaskId: null,
       tasks: [...this.props.tasks],
     };
   }
@@ -56,6 +57,28 @@ class MainContent extends React.Component {
   createNewTask = (newTask) => {
     this.setState((prevState) => ({
       tasks: [...prevState.tasks, newTask],
+    }));
+  }
+
+  deleteTask = (taskId) => {
+    this.setState((prevState) => ({
+      tasks: prevState.tasks.filter((task) => task.id !== taskId),
+    }));
+  }
+
+  changeEditCardId = (taskId) => {
+    this.setState({
+      editTaskId: taskId,
+    });
+  }
+
+  editTaskCard = (editedTask) => {
+    this.setState((prevState) => ({
+      tasks: prevState.tasks.map((task) => {
+        if (task.id === editedTask.id) {
+          return editedTask;
+        } return task;
+      }),
     }));
   }
 
