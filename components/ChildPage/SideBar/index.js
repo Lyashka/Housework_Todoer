@@ -11,12 +11,12 @@ const UsersPanel = styled.section`
   height: 75vh;
 `;
 
-function SideBar() {
+function SideBar(props) {
   return (
     <UsersPanel>
       <ChildCard
-        name="Lily"
-        coins="340"
+        name={props.name}
+        coins={props.coins}
         src={AvatarLily}
       />
     </UsersPanel>
