@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import ImageFooter from '../../src/icons/background_for_home_page.png';
 import SideBar from './SideBar';
-// import { tasks } from '../../const';
+import MainContent from './MainContent';
+import { tasks, children, completedTasks } from '../../const';
 
 const PageContainer = styled.div`
   display: flex;
@@ -34,19 +35,63 @@ const BackgroundFooter = styled.img.attrs((props) => ({
   width: auto;
 `;
 
-function ChildPage({ user }) {
-  return (
-    <PageContainer>
-      <Content>
-        <SideBar />
-      </Content>
-      {user && (
-        <Footer>
-          <BackgroundFooter src={ImageFooter} />
-        </Footer>
-      )}
-    </PageContainer>
-  );
+class ChildPage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tasks: [...tasks],
+      name: children[0].name,
+      coinsSum: children[0].coinsSum,
+      completedTasks: [...completedTasks],
+    };
+  }
+
+  handlerOfCompletedTask = (taskId) => {
+    this.setState((prevState) => ({
+      tasks: prevState.tasks.filter((task) => task.id !== taskId),
+    }));
+  }
+
+  handlerForAddCoins = (taskId) => {
+    const newCompletedTask = this.state.tasks.filter((task) => task.id === taskId);
+
+    this.setState((prevState) => ({
+      coinsSum: prevState.coinsSum + newCompletedTask[0].reward,
+    }));
+  }
+
+  handlerForSaveCompletedTask = (taskId) => {
+    const newCompletedTask = this.state.tasks.filter((task) => task.id === taskId);
+
+    this.setState((prevState) => ({
+      completedTasks: [...prevState.completedTasks, newCompletedTask[0]],
+    }));
+  }
+
+  render() {
+    return (
+      <PageContainer>
+        <Content>
+          <SideBar
+            name={this.state.name}
+            coins={this.state.coinsSum}
+          />
+          <MainContent
+            tasks={this.state.tasks}
+            handlerOfCompletedTask={this.handlerOfCompletedTask}
+            handlerForAddCoins={this.handlerForAddCoins}
+            handlerForSaveCompletedTask={this.handlerForSaveCompletedTask}
+          />
+        </Content>
+        {this.props.user && (
+          <Footer>
+            <BackgroundFooter src={ImageFooter} />
+          </Footer>
+        )}
+      </PageContainer>
+    );
+  }
 }
 
 export default ChildPage;
