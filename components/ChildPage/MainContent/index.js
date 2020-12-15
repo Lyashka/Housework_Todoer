@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import NavigationPanel from './NavigationPanel';
 import PerformTaskCard from './PerformTaskCard';
@@ -29,9 +29,14 @@ const TaskItem = styled.li`
 `;
 
 function MainContent(props) {
+  const [tabNavigation, setTabNavigation] = useState('tasks');
+
   return (
     <Content>
-      <NavigationPanel />
+      <NavigationPanel
+        tabNavigation={tabNavigation}
+        setTabNavigation={setTabNavigation}
+      />
       <Tasks>
         {props.tasks.map(({
           id,

@@ -24,17 +24,17 @@ const NavButton = styled.button`
   }
 `;
 
-function NavigationPanel() {
+function NavigationPanel(props) {
   return (
     <NavPanel>
       <NavList>
         <NavItem first>
-          <NavButton active>
+          <NavButton active={props.tabNavigation === 'tasks'} onClick={() => props.setTabNavigation('tasks')}>
             Today’s housework
           </NavButton>
         </NavItem>
         <NavItem>
-          <NavButton>
+          <NavButton active={props.tabNavigation === 'history'} onClick={() => props.setTabNavigation('history')}>
             History
           </NavButton>
         </NavItem>
