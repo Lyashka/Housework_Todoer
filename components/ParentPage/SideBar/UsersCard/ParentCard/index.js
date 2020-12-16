@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ColContainer from '../../../../containers/colContainer';
 import RowContainer from '../../../../containers/rowContainer';
@@ -176,7 +176,6 @@ const AcceptChangePasswordButton = styled.button`
 
 function ParentCard(props) {
   const greeting = `Hello, ${props.name}!`;
-  const [isChangePassword, setPassword] = useState(false);
 
   return (
     <>
@@ -198,7 +197,7 @@ function ParentCard(props) {
               <ParentGreeting>
                 {greeting}
               </ParentGreeting>
-              <ChangePasswordButton onClick={() => setPassword(true)}>
+              <ChangePasswordButton onClick={() => props.handleOpenChangePassword()}>
                 Change password
               </ChangePasswordButton>
             </ParentText>
@@ -207,7 +206,7 @@ function ParentCard(props) {
 
       </CardContainer>
 
-      {isChangePassword
+      {props.isChangePassword
         && (
         <ParentFooter>
           <ParentForm>
@@ -216,7 +215,7 @@ function ParentCard(props) {
               <ParentPassword type="password" />
             </ParentLabel>
             <ButtonsChangePassword>
-              <RejectChangePasswordButton type="button" onClick={() => setPassword(false)}>
+              <RejectChangePasswordButton type="button" onClick={() => props.handleRejectChangePassword()}>
                 Cancel
               </RejectChangePasswordButton>
               <AcceptChangePasswordButton type="submit">

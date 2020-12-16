@@ -44,35 +44,21 @@ export const tasks = [
   },
 ];
 
-export const users = [
-  {
-    id: uuidv4(),
-    name: 'Jack',
-    role: 'parent',
-  },
-  {
-    id: uuidv4(),
-    name: 'Lily',
-    role: 'child',
-    coinsSum: 425,
-    completedTasks: [],
-  },
-  {
-    id: uuidv4(),
-    name: 'Mary',
-    role: 'child',
-    coinsSum: 350,
-    completedTasks: [],
-  },
-];
+export const parent = {
+  id: uuidv4(),
+  name: 'Jack',
+  role: 'parent',
+};
 
 export const children = [
   {
+    id: uuidv4(),
     name: 'Lily',
     coinsSum: 425,
     completedTasks: [],
   },
   {
+    id: uuidv4(),
     name: 'Mary',
     coinsSum: 350,
     completedTasks: [],
