@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 import ColContainer from '../../../containers/colContainer';
 import RowContainer from '../../../containers/rowContainer';
-import ExitButton from '../../../../src/icons/delete_task.svg';
-import HoverExitButton from '../../../../src/icons/delete_task_hover.svg';
+import ExitButton from '../../../../public/icons/delete_task.svg';
+import HoverExitButton from '../../../../public/icons/delete_task_hover.svg';
 import determineСardСolorByTaskReward from '../../../../Core/determineCardColorByTaskReward';
 import handleChange from '../../../../common/utils/handleChange';
 

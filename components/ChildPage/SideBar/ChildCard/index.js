@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import RowContainer from '../../../containers/rowContainer';
 import ColContainer from '../../../containers/colContainer';
-import ExitImage from '../../../../src/icons/exit_to_app.svg';
-import ExitImageHover from '../../../../src/icons/exit_to_app_hover.svg';
-import ExitImageActive from '../../../../src/icons/exit_to_app_active.svg';
+import ExitImage from '../../../../public/icons/exit_to_app.svg';
+import ExitImageHover from '../../../../public/icons/exit_to_app_hover.svg';
+import ExitImageActive from '../../../../public/icons/exit_to_app_active.svg';
 
 const CardContainer = styled.div`
   ${ColContainer}

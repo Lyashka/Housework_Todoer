@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import ColContainer from '../../../containers/colContainer';
 import RowContainer from '../../../containers/rowContainer';
-import HoverCloseTaskImage from '../../../../src/icons/close_task_hover.svg';
-import CloseTaskImage from '../../../../src/icons/close_task.svg';
-import DoneTask from '../../../../src/icons/done_task.svg';
+import HoverCloseTaskImage from '../../../../public/icons/close_task_hover.svg';
+import CloseTaskImage from '../../../../public/icons/close_task.svg';
+import DoneTask from '../../../../public/icons/done_task.svg';
 
 const ContainerCompleteTaskCard = styled.div`
   width: 180px;

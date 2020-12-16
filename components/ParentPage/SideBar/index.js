@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import ParentCard from './UsersCard/ParentCard';
 import ChildCard from './UsersCard/ChildCard';
 import { users } from '../../../const';
-import AvatarLily from '../../../src/icons/Lily.svg';
-import AvatarMary from '../../../src/icons/Mary.svg';
+import AvatarLily from '../../../public/icons/Lily.svg';
+import AvatarMary from '../../../public/icons/Mary.svg';
 
 const UsersPanel = styled.section`
   display: flex;
