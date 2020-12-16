@@ -82,8 +82,8 @@ export const children = [
 export const completedTasks = [
   {
     id: uuidv4(),
-    reward: 125,
-    description: 'Find dad’s wallet',
+    reward: 100,
+    description: 'Completed task',
     color: colorForDifficultTask,
   },
 ];

@@ -79,6 +79,7 @@ class ChildPage extends React.Component {
           />
           <MainContent
             tasks={this.state.tasks}
+            completedTasks={this.state.completedTasks}
             handlerOfCompletedTask={this.handlerOfCompletedTask}
             handlerForAddCoins={this.handlerForAddCoins}
             handlerForSaveCompletedTask={this.handlerForSaveCompletedTask}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import NavigationPanel from './NavigationPanel';
 import PerformTaskCard from './PerformTaskCard';
+import TaskCard from './TaskCard';
 import RowContainer from '../../containers/rowContainer';
 import ColContainer from '../../containers/colContainer';
 
@@ -30,33 +31,53 @@ const TaskItem = styled.li`
 
 function MainContent(props) {
   const [tabNavigation, setTabNavigation] = useState('tasks');
-
+  // TODO: create config for tabNavigationTypes
   return (
     <Content>
       <NavigationPanel
         tabNavigation={tabNavigation}
         setTabNavigation={setTabNavigation}
       />
-      <Tasks>
-        {props.tasks.map(({
-          id,
-          description,
-          reward,
-          color,
-        }) => (
-          <TaskItem key={id}>
-            <PerformTaskCard
-              taskId={id}
-              description={description}
-              reward={reward}
-              color={color}
-              handlerOfCompletedTask={props.handlerOfCompletedTask}
-              handlerForAddCoins={props.handlerForAddCoins}
-              handlerForSaveCompletedTask={props.handlerForSaveCompletedTask}
-            />
-          </TaskItem>
-        ))}
-      </Tasks>
+      {tabNavigation === 'tasks' ? (
+        <Tasks>
+          {props.tasks.map(({
+            id,
+            description,
+            reward,
+            color,
+          }) => (
+            <TaskItem key={id}>
+              <PerformTaskCard
+                taskId={id}
+                description={description}
+                reward={reward}
+                color={color}
+                handlerOfCompletedTask={props.handlerOfCompletedTask}
+                handlerForAddCoins={props.handlerForAddCoins}
+                handlerForSaveCompletedTask={props.handlerForSaveCompletedTask}
+              />
+            </TaskItem>
+          ))}
+        </Tasks>
+      ) : (
+        <Tasks>
+          {props.completedTasks.map(({
+            id,
+            description,
+            reward,
+            color,
+          }) => (
+            <TaskItem key={id}>
+              <TaskCard
+                taskId={id}
+                description={description}
+                reward={reward}
+                color={color}
+              />
+            </TaskItem>
+          ))}
+        </Tasks>
+      )}
     </Content>
   );
 }
